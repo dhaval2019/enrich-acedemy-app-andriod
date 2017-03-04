@@ -45,6 +45,12 @@ public class EnrichAcademyApplication extends Application {
         return false;
     }
 
+    public boolean isCartEmpty() {
+        if (cartList.size() == 0)
+            return true;
+        return false;
+    }
+
     public boolean alreadyExist(ServicesModel servicesModel) {
         for (int i = 0; i < cartList.size(); i++) {
             if (servicesModel.Id == cartList.get(i).Id) {
@@ -83,8 +89,8 @@ public class EnrichAcademyApplication extends Application {
     public double getTotalCartPrice() {
         double totalPrice = 0;
         for (int i = 0; i < cartList.size(); i++)
-            if (cartList.get(i).rate != null)
-                totalPrice += Double.valueOf(cartList.get(i).rate);
+            if (cartList.get(i).DiscountPrice != 0)
+                totalPrice += cartList.get(i).DiscountPrice;
         return totalPrice;
     }
 

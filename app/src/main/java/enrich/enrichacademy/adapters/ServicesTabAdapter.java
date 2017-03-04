@@ -65,7 +65,7 @@ public class ServicesTabAdapter extends ExpandableRecyclerAdapter<ServicesModel,
     public void onBindParentViewHolder(@NonNull ServicesParentViewHolder holder, int parentPosition, @NonNull ServicesModel parent) {
         ServicesModel servicesModel = servicesList.get(parentPosition);
         holder.name.setText(servicesModel.name);
-        holder.rate.setText(servicesModel.rate);
+        holder.rate.setText("" + servicesModel.DiscountPrice);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)

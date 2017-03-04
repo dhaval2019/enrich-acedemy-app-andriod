@@ -20,6 +20,7 @@ import enrich.enrichacademy.activities.CartActivity;
 import enrich.enrichacademy.activities.CourseListActivity;
 import enrich.enrichacademy.adapters.CoursePagerAdapter;
 import enrich.enrichacademy.adapters.ServicesPagerAdapter;
+import enrich.enrichacademy.application.EnrichAcademyApplication;
 import enrich.enrichacademy.model.CategoryModel;
 import enrich.enrichacademy.model.CourseModel;
 import enrich.enrichacademy.model.ServicesModel;
@@ -41,6 +42,7 @@ public class ServicesFragment extends Fragment {
     ViewPager mServicesViewPager;
     ServicesPagerAdapter pagerAdapter;
     FloatingActionButton cart;
+    EnrichAcademyApplication application;
 
     public static ServicesFragment getInstance() {
         return new ServicesFragment();
@@ -51,6 +53,8 @@ public class ServicesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_services, container, false);
 
+        application = (EnrichAcademyApplication) getActivity().getApplicationContext();
+
         mServicesTabHost = (SlidingTabLayout) rootView.findViewById(R.id.services_tabs);
         mServicesViewPager = (ViewPager) rootView.findViewById(R.id.services_view_pager);
         cart = (FloatingActionButton) rootView.findViewById(R.id.cart);
@@ -58,8 +62,13 @@ public class ServicesFragment extends Fragment {
         cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ServicesFragment.this.getActivity(), CartActivity.class);
-                getActivity().startActivity(intent);
+                if (application.isCartEmpty()) {
+                    EnrichUtils.showMessage(getActivity(), "Cart is Empty!");
+                } else {
+                    Intent intent = new Intent(ServicesFragment.this.getActivity(), CartActivity.class);
+                    getActivity().startActivity(intent);
+                }
+
             }
         });
 

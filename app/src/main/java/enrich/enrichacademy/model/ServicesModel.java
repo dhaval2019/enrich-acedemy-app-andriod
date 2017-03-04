@@ -20,38 +20,33 @@ public class ServicesModel implements Parent<String>, Parcelable {
 
     @SerializedName("Name")
     public String name;
-    public String rate;
+
     public String[] timings;
+
     @SerializedName("Description")
     public String description;
 
     @SerializedName("Topology_Id")
     public int TopologyId;
 
+    @SerializedName("ActualPrice")
+    public double ActualPrice;
+
+    @SerializedName("DiscountPrice")
+    public double DiscountPrice;
+
     public int selectedTimeSlotId;
+
 
     protected ServicesModel(Parcel in) {
         Id = in.readInt();
         name = in.readString();
-        rate = in.readString();
         timings = in.createStringArray();
         description = in.readString();
         TopologyId = in.readInt();
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(Id);
-        dest.writeString(name);
-        dest.writeString(rate);
-        dest.writeStringArray(timings);
-        dest.writeString(description);
-        dest.writeInt(TopologyId);
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
+        ActualPrice = in.readDouble();
+        DiscountPrice = in.readDouble();
+        selectedTimeSlotId = in.readInt();
     }
 
     public static final Creator<ServicesModel> CREATOR = new Creator<ServicesModel>() {
@@ -65,6 +60,23 @@ public class ServicesModel implements Parent<String>, Parcelable {
             return new ServicesModel[size];
         }
     };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(Id);
+        parcel.writeString(name);
+        parcel.writeStringArray(timings);
+        parcel.writeString(description);
+        parcel.writeInt(TopologyId);
+        parcel.writeDouble(ActualPrice);
+        parcel.writeDouble(DiscountPrice);
+        parcel.writeInt(selectedTimeSlotId);
+    }
 
     @Override
     public List<String> getChildList() {
