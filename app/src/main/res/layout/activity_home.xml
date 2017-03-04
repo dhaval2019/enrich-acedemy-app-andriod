@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_home"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="enrich.enrichacademy.activities.HomeActivity">
+
+    <FrameLayout
+        android:id="@+id/home_frame_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_toolbar"
+        android:background="#f4f4f4" />
+
+    <LinearLayout
+        android:id="@+id/bottom_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:elevation="5dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <!-- SERVICES -->
+        <LinearLayout
+            android:id="@+id/services_container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="7dp">
+
+            <ImageView
+                android:id="@+id/services_image"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/services_unselected" />
+
+            <enrich.enrichacademy.view.CustomTextView
+                android:id="@+id/services_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="Services"
+                android:textColor="@color/text_color"
+                app:font_type="bold" />
+        </LinearLayout>
+
+        <!-- COURSES -->
+        <LinearLayout
+            android:id="@+id/courses_container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="7dp">
+
+            <ImageView
+                android:id="@+id/courses_image"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/courses_unselected" />
+
+            <enrich.enrichacademy.view.CustomTextView
+                android:id="@+id/courses_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="Courses"
+                android:textColor="@color/text_color"
+                app:font_type="bold" />
+        </LinearLayout>
+
+        <!-- HISTORY -->
+        <LinearLayout
+            android:id="@+id/history_container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="7dp">
+
+            <ImageView
+                android:id="@+id/history_image"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/history_unselected" />
+
+            <enrich.enrichacademy.view.CustomTextView
+                android:id="@+id/history_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="History"
+                android:textColor="@color/text_color"
+                app:font_type="bold" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
+

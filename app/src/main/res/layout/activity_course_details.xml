@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_course_details"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f4f4f4"
+    android:orientation="vertical"
+    tools:context="enrich.enrichacademy.activities.CourseDetailsActivity">
+
+    <!-- TOOLBAR -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="5dp">
+
+        <ImageView
+            android:id="@+id/back_button"
+            android:layout_width="?attr/actionBarSize"
+            android:layout_height="?attr/actionBarSize"
+            android:padding="10dp"
+            android:src="@drawable/ic_keyboard_arrow_left_black_24dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_centerInParent="true"
+            android:background="@color/white"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <enrich.enrichacademy.view.CustomTextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Beauty Courses"
+                android:textColor="@color/text_color"
+                android:textSize="20sp"
+                app:font_type="bold" />
+
+            <enrich.enrichacademy.view.CustomTextView
+                android:id="@+id/toolbar_sub_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="CIBTAC B012"
+                android:textColor="@color/text_color_hint"
+                android:textSize="16sp"
+                app:font_type="bold" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/courses_banner" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <enrich.enrichacademy.view.CustomTextView
+                        android:id="@+id/overview_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="2dp"
+                        android:paddingRight="2dp"
+                        android:text="Overview"
+                        android:textColor="@color/text_color"
+                        android:textSize="16sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_alignBottom="@+id/overview_label"
+                        android:layout_alignLeft="@+id/overview_label"
+                        android:layout_alignRight="@+id/overview_label"
+                        android:background="@color/text_color" />
+                </RelativeLayout>
+
+                <enrich.enrichacademy.view.CustomTextView
+                    android:id="@+id/overview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="This course will train the student in al the aesthetic skin treatments that are offered in beauty industry worldwide and give them the requisite theory and practical knowledge to perform these services professionally. "
+                    android:textColor="@color/text_color_hint"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <enrich.enrichacademy.view.CustomTextView
+                        android:id="@+id/goals_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="2dp"
+                        android:paddingRight="2dp"
+                        android:text="Goals"
+                        android:textColor="@color/text_color"
+                        android:textSize="16sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_alignBottom="@+id/goals_label"
+                        android:layout_alignLeft="@+id/goals_label"
+                        android:layout_alignRight="@+id/goals_label"
+                        android:background="@color/text_color" />
+                </RelativeLayout>
+
+                <enrich.enrichacademy.view.CustomTextView
+                    android:id="@+id/goals"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Anatomy and Physiology of skin. Introduction to Galvanic current, Hight frequency, vaccum suction, ultrasonic &amp; vapor ozone, micro-current, neuro-muscular stimulations."
+                    android:textColor="@color/text_color_hint"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <enrich.enrichacademy.view.CustomTextView
+                        android:id="@+id/requirements_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="2dp"
+                        android:paddingRight="2dp"
+                        android:text="Requirements"
+                        android:textColor="@color/text_color"
+                        android:textSize="16sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_alignBottom="@+id/requirements_label"
+                        android:layout_alignLeft="@+id/requirements_label"
+                        android:layout_alignRight="@+id/requirements_label"
+                        android:background="@color/text_color" />
+                </RelativeLayout>
+
+                <enrich.enrichacademy.view.CustomTextView
+                    android:id="@+id/requirements"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="This course will train the student in al the aesthetic skin treatments that are offered in beauty industry worldwide and give them the requisite theory and practical knowledge to perform these services professionally."
+                    android:textColor="@color/text_color_hint"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <enrich.enrichacademy.view.CustomTextView
+                        android:id="@+id/evaluations_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="2dp"
+                        android:paddingRight="2dp"
+                        android:text="Evaluations"
+                        android:textColor="@color/text_color"
+                        android:textSize="16sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_alignBottom="@+id/evaluations_label"
+                        android:layout_alignLeft="@+id/evaluations_label"
+                        android:layout_alignRight="@+id/evaluations_label"
+                        android:background="@color/text_color" />
+                </RelativeLayout>
+
+                <enrich.enrichacademy.view.CustomTextView
+                    android:id="@+id/evaluations"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Anatomy and Physiology of skin. Introduction to Galvanic current, Hight frequency, vaccum suction, ultrasonic &amp; vapor ozone, micro-current, neuro-muscular stimulations."
+                    android:textColor="@color/text_color_hint"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>

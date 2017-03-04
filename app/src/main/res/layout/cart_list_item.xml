@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_toLeftOf="@+id/services_expand_collapse_button"
+        android:layout_toRightOf="@+id/services_list_image"
+        android:orientation="vertical">
+
+        <enrich.enrichacademy.view.CustomTextView
+            android:id="@+id/cart_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hair Cut"
+            android:textColor="@color/text_color"
+            android:textSize="16sp"
+            app:font_type="bold" />
+
+        <enrich.enrichacademy.view.CustomTextView
+            android:id="@+id/cart_rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Rs 120/-"
+            android:textColor="@color/text_color_services_rate"
+            android:textSize="16sp"
+            app:font_type="reqular" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/services_expand_collapse_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/services_list_image"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/services_list_image"
+        android:layout_centerVertical="true"
+        android:padding="10dp"
+        android:src="@drawable/cross" />
+
+</RelativeLayout>

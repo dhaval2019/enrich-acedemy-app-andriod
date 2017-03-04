@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- TOOLBAR -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
+        android:elevation="5dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <enrich.enrichacademy.view.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Registration"
+            android:textColor="@color/text_color"
+            android:textSize="20sp"
+            app:font_type="bold" />
+    </LinearLayout>
+
+    <!-- CURRENT / PAST SWITCH -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <LinearLayout
+            android:id="@+id/current_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:background="@drawable/history_current_bg_selected"
+            android:gravity="right"
+            android:orientation="vertical"
+            android:paddingBottom="10dp"
+            android:paddingLeft="50dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp">
+
+            <enrich.enrichacademy.view.CustomTextView
+                android:id="@+id/current_tab_label"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Current"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <enrich.enrichacademy.view.CustomTextView
+                android:id="@+id/current_tab_sub_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Transaction"
+                android:textColor="@color/white"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/past_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:background="@drawable/history_past_bg_unselected"
+            android:gravity="left"
+            android:orientation="vertical"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="50dp"
+            android:paddingTop="10dp">
+
+            <enrich.enrichacademy.view.CustomTextView
+                android:id="@+id/past_tab_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Past"
+                android:textColor="@color/text_color"
+                android:textSize="16sp" />
+
+            <enrich.enrichacademy.view.CustomTextView
+                android:id="@+id/past_tab_sub_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Transaction"
+                android:textColor="@color/text_color"
+                android:textSize="11sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/history_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:background="@color/white" />
+</LinearLayout>
