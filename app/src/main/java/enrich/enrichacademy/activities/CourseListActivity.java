@@ -29,9 +29,7 @@ public class CourseListActivity extends AppCompatActivity {
     SlidingTabLayout coursesTabs;
     ViewPager coursesViewPager;
     ArrayList<CourseModel> coursesList;
-    ArrayList<CategoryModel> categoryModels;
     CoursePagerAdapter pagerAdapter;
-    String[] topologyStrings = new String[]{"Beauty", "Hair", "Make Up", "Salon Management"};
 
     ImageView backButton;
 
@@ -64,14 +62,6 @@ public class CourseListActivity extends AppCompatActivity {
 
                 EnrichUtils.log("" + response.code());
 
-                categoryModels = new ArrayList<CategoryModel>();
-                CategoryModel[] categoryModelsTemp = response.body();
-
-                for (int i = 0; i < categoryModelsTemp.length; i++) {
-                    if (categoryModelsTemp[i].IsActive) {
-                        categoryModels.add(categoryModelsTemp[i]);
-                    }
-                }
                 fetchAllCourses(response.body());
             }
 
@@ -90,7 +80,7 @@ public class CourseListActivity extends AppCompatActivity {
             public void onResponse(Call<CourseModel[]> call, Response<CourseModel[]> response) {
 
                 EnrichUtils.log("" + response.code());
-                coursesList = new ArrayList<CourseModel>(Arrays.asList(response.body()));
+                coursesList = new ArrayList<>(Arrays.asList(response.body()));
 
                 mapCategoriesAndCourses(response.body(), categoryModels);
                 EnrichUtils.cancelCurrentDialog(CourseListActivity.this);

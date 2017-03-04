@@ -24,10 +24,9 @@ public class ServicesModel implements Parent<String>, Parcelable {
     public String[] timings;
     @SerializedName("Description")
     public String description;
-    public CategoryModel categoryModel;
 
-    @SerializedName("Category_Id")
-    public int CategoryId;
+    @SerializedName("Topology_Id")
+    public int TopologyId;
 
     public int selectedTimeSlotId;
 
@@ -37,8 +36,7 @@ public class ServicesModel implements Parent<String>, Parcelable {
         rate = in.readString();
         timings = in.createStringArray();
         description = in.readString();
-        categoryModel = in.readParcelable(CategoryModel.class.getClassLoader());
-        CategoryId = in.readInt();
+        TopologyId = in.readInt();
     }
 
     @Override
@@ -48,8 +46,7 @@ public class ServicesModel implements Parent<String>, Parcelable {
         dest.writeString(rate);
         dest.writeStringArray(timings);
         dest.writeString(description);
-        dest.writeParcelable(categoryModel, flags);
-        dest.writeInt(CategoryId);
+        dest.writeInt(TopologyId);
     }
 
     @Override

@@ -8,6 +8,7 @@ import enrich.enrichacademy.model.CategoryModel;
 import enrich.enrichacademy.model.CourseModel;
 import enrich.enrichacademy.model.ResponseDS;
 import enrich.enrichacademy.model.ServicesModel;
+import enrich.enrichacademy.model.TopologyModel;
 import enrich.enrichacademy.model.UserModel;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -35,6 +36,9 @@ public interface NetworkConnector {
 
     @GET()
     Call<CategoryModel[]> getCategories(@Url String url);
+
+    @GET()
+    Call<TopologyModel[]> getTopology(@Url String url);
 
     @GET()
     Call<ServicesModel[]> getServices(@Url String url);
