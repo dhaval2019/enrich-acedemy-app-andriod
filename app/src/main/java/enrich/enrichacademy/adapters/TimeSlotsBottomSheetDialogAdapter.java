@@ -10,8 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import enrich.enrichacademy.R;
 import enrich.enrichacademy.fragments.TimeSlotsBottomSheetDialogFragment;
+import enrich.enrichacademy.model.TimingModel;
 import enrich.enrichacademy.utils.BottomSheetListOnItemClickListener;
 
 /**
@@ -21,12 +24,12 @@ import enrich.enrichacademy.utils.BottomSheetListOnItemClickListener;
 public class TimeSlotsBottomSheetDialogAdapter extends RecyclerView.Adapter<TimeSlotsBottomSheetDialogAdapter.TimeSlotsViewHolder> {
 
     Context context;
-    String[] timeSlots;
+    ArrayList<TimingModel> timeSlots;
     LayoutInflater inflater;
     BottomSheetListOnItemClickListener bottomSheetListOnItemClickListener;
     TimeSlotsBottomSheetDialogFragment timeSlotsBottomSheetDialogFragment;
 
-    public TimeSlotsBottomSheetDialogAdapter(Context context, String[] timeSlots, BottomSheetListOnItemClickListener bottomSheetListOnItemClickListener, TimeSlotsBottomSheetDialogFragment timeSlotsBottomSheetDialogFragment) {
+    public TimeSlotsBottomSheetDialogAdapter(Context context, ArrayList<TimingModel> timeSlots, BottomSheetListOnItemClickListener bottomSheetListOnItemClickListener, TimeSlotsBottomSheetDialogFragment timeSlotsBottomSheetDialogFragment) {
         this.context = context;
         this.timeSlots = timeSlots;
         this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -42,7 +45,7 @@ public class TimeSlotsBottomSheetDialogAdapter extends RecyclerView.Adapter<Time
 
     @Override
     public void onBindViewHolder(final TimeSlotsViewHolder holder, final int position) {
-        holder.timeSlot.setText(timeSlots[position]);
+        holder.timeSlot.setText(timeSlots.get(position).Timings);
         holder.timeSlot.setTag(position);
         holder.timeSlot.setOnClickListener(new View.OnClickListener() {
             @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -59,7 +62,7 @@ public class TimeSlotsBottomSheetDialogAdapter extends RecyclerView.Adapter<Time
 
     @Override
     public int getItemCount() {
-        return timeSlots.length;
+        return timeSlots.size();
     }
 
     class TimeSlotsViewHolder extends RecyclerView.ViewHolder {

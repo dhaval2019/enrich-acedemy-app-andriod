@@ -20,16 +20,36 @@ public class CourseModel implements Parcelable {
     @SerializedName("Rate")
     public String rate;
 
+    @SerializedName("Duration")
     public String duration;
 
     @SerializedName("Description")
     public String description;
 
-    @SerializedName("Category")
-    public CategoryModel categoryModel;
-
     @SerializedName("Category_Id")
     public int CategoryId;
+
+    @SerializedName("BannerImage")
+    public String BannerImage;
+
+    @SerializedName("ThumbImage")
+    public String ThumbImage;
+
+    @SerializedName("Goals")
+    public String Goals;
+
+    @SerializedName("Level")
+    public String Level;
+
+    @SerializedName("Meterials")
+    public String Meterials;
+
+    @SerializedName("Prerequisites")
+    public String Prerequisites;
+
+    @SerializedName("ConnectedCourses")
+    public String ConnectedCourses;
+
 
     protected CourseModel(Parcel in) {
         Id = in.readInt();
@@ -37,8 +57,36 @@ public class CourseModel implements Parcelable {
         rate = in.readString();
         duration = in.readString();
         description = in.readString();
-        categoryModel = in.readParcelable(CategoryModel.class.getClassLoader());
         CategoryId = in.readInt();
+        BannerImage = in.readString();
+        ThumbImage = in.readString();
+        Goals = in.readString();
+        Level = in.readString();
+        Meterials = in.readString();
+        Prerequisites = in.readString();
+        ConnectedCourses = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(Id);
+        dest.writeString(name);
+        dest.writeString(rate);
+        dest.writeString(duration);
+        dest.writeString(description);
+        dest.writeInt(CategoryId);
+        dest.writeString(BannerImage);
+        dest.writeString(ThumbImage);
+        dest.writeString(Goals);
+        dest.writeString(Level);
+        dest.writeString(Meterials);
+        dest.writeString(Prerequisites);
+        dest.writeString(ConnectedCourses);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
     public static final Creator<CourseModel> CREATOR = new Creator<CourseModel>() {
@@ -52,20 +100,4 @@ public class CourseModel implements Parcelable {
             return new CourseModel[size];
         }
     };
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(Id);
-        parcel.writeString(name);
-        parcel.writeString(rate);
-        parcel.writeString(duration);
-        parcel.writeString(description);
-        parcel.writeParcelable(categoryModel, i);
-        parcel.writeInt(CategoryId);
-    }
 }

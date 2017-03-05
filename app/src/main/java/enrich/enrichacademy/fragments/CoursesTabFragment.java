@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import enrich.enrichacademy.R;
+import enrich.enrichacademy.adapters.CoursesTabAdapter;
 import enrich.enrichacademy.model.CourseModel;
 
 /**

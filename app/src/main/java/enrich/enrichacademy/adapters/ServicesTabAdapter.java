@@ -16,13 +16,20 @@ import com.bignerdranch.expandablerecyclerview.ChildViewHolder;
 import com.bignerdranch.expandablerecyclerview.ExpandableRecyclerAdapter;
 import com.bignerdranch.expandablerecyclerview.ParentViewHolder;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import enrich.enrichacademy.R;
 import enrich.enrichacademy.application.EnrichAcademyApplication;
 import enrich.enrichacademy.fragments.TimeSlotsBottomSheetDialogFragment;
 import enrich.enrichacademy.model.ServicesModel;
+import enrich.enrichacademy.model.TimingModel;
 import enrich.enrichacademy.utils.BottomSheetListOnItemClickListener;
+import enrich.enrichacademy.utils.EnrichURLs;
+import enrich.enrichacademy.utils.EnrichUtils;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by Admin on 22-Feb-17.
@@ -65,7 +72,7 @@ public class ServicesTabAdapter extends ExpandableRecyclerAdapter<ServicesModel,
     public void onBindParentViewHolder(@NonNull ServicesParentViewHolder holder, int parentPosition, @NonNull ServicesModel parent) {
         ServicesModel servicesModel = servicesList.get(parentPosition);
         holder.name.setText(servicesModel.name);
-        holder.rate.setText("" + servicesModel.DiscountPrice);
+        holder.rate.setText("Rs. " + servicesModel.DiscountPrice);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -79,6 +86,7 @@ public class ServicesTabAdapter extends ExpandableRecyclerAdapter<ServicesModel,
             holder.addButton.setBackground(context.getDrawable(R.drawable.button_bg_round_rect_grey));
             holder.addButton.setText("ADDED");
         } else {
+            holder.addButton.setEnabled(true);
             holder.addButton.setBackground(context.getDrawable(R.drawable.button_bg_round_rect_red));
             holder.addButton.setText("ADD");
         }
@@ -86,16 +94,7 @@ public class ServicesTabAdapter extends ExpandableRecyclerAdapter<ServicesModel,
         holder.addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String[] strings = new String[]{"10:00 am", "11:00 am", "12:00 am", "1:00 am", "2:00 am", "3:00 am", "4:00 am"};
-
-                BottomSheetDialogFragment bottomSheetDialogFragment = TimeSlotsBottomSheetDialogFragment.getInstance(servicesModel.name, strings, new BottomSheetListOnItemClickListener() {
-                    @Override
-                    public void onListItemSelected(int position) {
-                        application.addToCart(servicesModel);
-                        notifyChildChanged(parentPosition, childPosition);
-                    }
-                });
-                bottomSheetDialogFragment.show(fragmentManager, "Dialog");
+                getTimings(servicesModel, parentPosition, childPosition);
             }
         });
     }
@@ -132,5 +131,38 @@ public class ServicesTabAdapter extends ExpandableRecyclerAdapter<ServicesModel,
             description = (TextView) itemView.findViewById(R.id.service_description);
             addButton = (TextView) itemView.findViewById(R.id.add_button);
         }
+    }
+
+    public void getTimings(final ServicesModel servicesModel, final int parentPosition, final int childPosition) {
+        Call<TimingModel[]> timingCall = EnrichUtils.getRetrofit().getTimings(EnrichURLs.ENRICH_HOST + EnrichURLs.TIMINGS);
+        timingCall.enqueue(new Callback<TimingModel[]>() {
+            @Override
+            public void onResponse(Call<TimingModel[]> call, Response<TimingModel[]> response) {
+
+                EnrichUtils.log("" + response.code());
+                final ArrayList<TimingModel> timingModelsTempList = new ArrayList<TimingModel>();
+                TimingModel[] timingModelsTempArray = response.body();
+                for (int i = 0; i < timingModelsTempArray.length; i++) {
+                    if (servicesModel.Id == timingModelsTempArray[i].Type_Id) {
+                        timingModelsTempList.add(timingModelsTempArray[i]);
+                    }
+                }
+
+                BottomSheetDialogFragment bottomSheetDialogFragment = TimeSlotsBottomSheetDialogFragment.getInstance(servicesModel.name, timingModelsTempList, new BottomSheetListOnItemClickListener() {
+                    @Override
+                    public void onListItemSelected(int position) {
+                        servicesModel.TimingModel = timingModelsTempList.get(position);
+                        application.addToCart(servicesModel);
+                        notifyChildChanged(parentPosition, childPosition);
+                    }
+                });
+                bottomSheetDialogFragment.show(fragmentManager, "Dialog");
+            }
+
+            @Override
+            public void onFailure(Call<TimingModel[]> call, Throwable t) {
+                EnrichUtils.log("" + t.getLocalizedMessage());
+            }
+        });
     }
 }

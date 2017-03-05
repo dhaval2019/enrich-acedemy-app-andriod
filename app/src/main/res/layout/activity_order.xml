@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="enrich.enrichacademy.activities.OrderActivity">
+
+    <RelativeLayout
+        android:id="@+id/order_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="5dp">
+
+        <ImageView
+            android:id="@+id/back_button"
+            android:layout_width="?attr/actionBarSize"
+            android:layout_height="?attr/actionBarSize"
+            android:padding="10dp"
+            android:src="@drawable/ic_keyboard_arrow_left_black_24dp"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_centerInParent="true"
+            android:background="@color/white"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <enrich.enrichacademy.view.CustomTextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Order Details"
+                android:textColor="@color/text_color"
+                android:textSize="20sp"
+                app:font_type="bold" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/order_toolbar"
+        android:orientation="vertical">
+
+        <!-- ORDER ID -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp">
+
+            <enrich.enrichacademy.view.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="Order Id: "
+                android:textColor="@color/text_color_hint"
+                android:textSize="16sp"
+                app:font_type="bold" />
+
+            <enrich.enrichacademy.view.CustomTextView
+                android:id="@+id/order_order_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="123456"
+                android:textColor="@color/text_color"
+                android:textSize="16sp"
+                app:font_type="bold" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#e5e5e5" />
+
+        <!-- BOOKING DATE -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp">
+
+            <enrich.enrichacademy.view.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="Booking Date: "
+                android:textColor="@color/text_color_hint"
+                android:textSize="16sp"
+                app:font_type="bold" />
+
+            <enrich.enrichacademy.view.CustomTextView
+                android:id="@+id/order_booking_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="07/06/1991"
+                android:textColor="@color/text_color"
+                android:textSize="16sp"
+                app:font_type="bold" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#e5e5e5" />
+
+        <!-- AMOUNT -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp">
+
+            <enrich.enrichacademy.view.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="Amount: "
+                android:textColor="@color/text_color_hint"
+                android:textSize="16sp"
+                app:font_type="bold" />
+
+            <enrich.enrichacademy.view.CustomTextView
+                android:id="@+id/order_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="Rs. 1500"
+                android:textColor="@color/text_color"
+                android:textSize="16sp"
+                app:font_type="bold" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#e5e5e5" />
+
+        <!-- STATUS -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp">
+
+            <enrich.enrichacademy.view.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="Order Status: "
+                android:textColor="@color/text_color_hint"
+                android:textSize="16sp"
+                app:font_type="bold" />
+
+            <enrich.enrichacademy.view.CustomTextView
+                android:id="@+id/order_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="Booked"
+                android:textColor="@color/text_color"
+                android:textSize="16sp"
+                app:font_type="bold" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#e5e5e5" />
+
+        <!-- PAYMENT MODE -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp">
+
+            <enrich.enrichacademy.view.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="Payment Mode: "
+                android:textColor="@color/text_color_hint"
+                android:textSize="16sp"
+                app:font_type="bold" />
+
+            <enrich.enrichacademy.view.CustomTextView
+                android:id="@+id/order_payment_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="Cash"
+                android:textColor="@color/text_color"
+                android:textSize="16sp"
+                app:font_type="bold" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#e5e5e5" />
+    </LinearLayout>
+
+
+    <!-- PROCEED -->
+    <LinearLayout
+        android:id="@+id/order_proceed_btn_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@color/white"
+        android:elevation="10dp"
+        android:orientation="horizontal"
+        android:padding="20dp">
+
+        <enrich.enrichacademy.view.CustomButton
+            android:id="@+id/order_proceed_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_bg_curved_red"
+            android:text="View transactions"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+</RelativeLayout>

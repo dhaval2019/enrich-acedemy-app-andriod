@@ -12,15 +12,16 @@
         android:layout_height="60dp"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        android:src="@drawable/sample" />
+        android:src="@drawable/courses_default" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginLeft="10dp"
-        android:layout_toLeftOf="@+id/services_expand_collapse_button"
+        android:layout_toLeftOf="@+id/courses_arrow"
         android:layout_toRightOf="@+id/courses_image"
+        android:gravity="center_vertical"
         android:orientation="vertical">
 
         <enrich.enrichacademy.view.CustomTextView
@@ -49,55 +50,10 @@
             android:textColor="@color/text_color_services_rate"
             android:textSize="12sp"
             app:font_type="bold" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:orientation="horizontal"
-            android:visibility="gone">
-
-            <enrich.enrichacademy.view.CustomTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/timing_bg_grey"
-                android:paddingBottom="5dp"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-                android:paddingTop="5dp"
-                android:text="10:00 am"
-                android:textColor="@color/text_color_hint"
-                android:textSize="8sp" />
-
-            <enrich.enrichacademy.view.CustomTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/timing_bg_grey"
-                android:paddingBottom="5dp"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-                android:paddingTop="5dp"
-                android:text="12:00 am"
-                android:textColor="@color/text_color_hint"
-                android:textSize="8sp" />
-
-            <enrich.enrichacademy.view.CustomTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/timing_bg_grey"
-                android:paddingBottom="5dp"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-                android:paddingTop="5dp"
-                android:text="3:00 am"
-                android:textColor="@color/text_color_hint"
-                android:textSize="8sp" />
-        </LinearLayout>
     </LinearLayout>
 
     <ImageView
+        android:id="@+id/courses_arrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/services_list_image"

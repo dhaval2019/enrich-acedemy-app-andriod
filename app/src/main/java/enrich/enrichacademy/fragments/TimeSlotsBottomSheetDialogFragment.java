@@ -10,8 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import enrich.enrichacademy.R;
 import enrich.enrichacademy.adapters.TimeSlotsBottomSheetDialogAdapter;
+import enrich.enrichacademy.model.TimingModel;
 import enrich.enrichacademy.utils.BottomSheetListOnItemClickListener;
 
 /**
@@ -23,15 +26,15 @@ public class TimeSlotsBottomSheetDialogFragment extends BottomSheetDialogFragmen
     RecyclerView mTimeSlotsRecyclerView;
     TextView mServiceName;
     BottomSheetListOnItemClickListener bottomSheetListOnItemClickListener;
-    String[] timeSlots;
+    ArrayList<TimingModel> timeSlots;
     String title;
     TimeSlotsBottomSheetDialogAdapter adapter;
 
-    public static TimeSlotsBottomSheetDialogFragment getInstance(String title, String[] timeSlots, BottomSheetListOnItemClickListener bottomSheetListOnItemClickListener) {
+    public static TimeSlotsBottomSheetDialogFragment getInstance(String title, ArrayList<TimingModel> timeSlots, BottomSheetListOnItemClickListener bottomSheetListOnItemClickListener) {
         TimeSlotsBottomSheetDialogFragment fragment = new TimeSlotsBottomSheetDialogFragment();
         Bundle bundle = new Bundle();
         bundle.putString("Title", title);
-        bundle.putStringArray("TimeSlots", timeSlots);
+        bundle.putParcelableArrayList("TimeSlots", timeSlots);
         bundle.putSerializable("BottomSheetListOnItemClickListener", bottomSheetListOnItemClickListener);
         fragment.setArguments(bundle);
         return fragment;
@@ -41,7 +44,7 @@ public class TimeSlotsBottomSheetDialogFragment extends BottomSheetDialogFragmen
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         title = getArguments().getString("Title");
-        timeSlots = getArguments().getStringArray("TimeSlots");
+        timeSlots = getArguments().getParcelableArrayList("TimeSlots");
         bottomSheetListOnItemClickListener = (BottomSheetListOnItemClickListener) getArguments().getSerializable("BottomSheetListOnItemClickListener");
     }
 

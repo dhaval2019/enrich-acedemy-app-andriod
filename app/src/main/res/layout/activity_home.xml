@@ -22,7 +22,7 @@
         android:background="@color/white"
         android:elevation="5dp"
         android:orientation="horizontal"
-        android:weightSum="3">
+        android:weightSum="4">
 
         <!-- SERVICES -->
         <LinearLayout
@@ -98,6 +98,32 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
                 android:text="History"
+                android:textColor="@color/text_color"
+                app:font_type="bold" />
+        </LinearLayout>
+
+        <!-- PROFILE -->
+        <LinearLayout
+            android:id="@+id/profile_container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="7dp">
+
+            <ImageView
+                android:id="@+id/profile_image"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/profile_unselected" />
+
+            <enrich.enrichacademy.view.CustomTextView
+                android:id="@+id/profile_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="Profile"
                 android:textColor="@color/text_color"
                 app:font_type="bold" />
         </LinearLayout>

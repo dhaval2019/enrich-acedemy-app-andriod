@@ -30,6 +30,7 @@
                 android:layout_centerVertical="true">
 
                 <LinearLayout
+                    android:id="@+id/service_date_container"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
@@ -40,6 +41,7 @@
                     android:padding="10dp">
 
                     <enrich.enrichacademy.view.CustomTextView
+                        android:id="@+id/service_day"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Monday"
@@ -48,6 +50,7 @@
                         app:font_type="bold" />
 
                     <enrich.enrichacademy.view.CustomTextView
+                        android:id="@+id/service_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"

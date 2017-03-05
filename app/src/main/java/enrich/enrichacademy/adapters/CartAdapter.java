@@ -1,17 +1,19 @@
 package enrich.enrichacademy.adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import enrich.enrichacademy.R;
-import enrich.enrichacademy.model.CartModel;
+import enrich.enrichacademy.activities.CartActivity;
+import enrich.enrichacademy.application.EnrichAcademyApplication;
 import enrich.enrichacademy.model.ServicesModel;
 
 /**
@@ -20,14 +22,16 @@ import enrich.enrichacademy.model.ServicesModel;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder> {
 
-    Context context;
+    Activity activity;
     LayoutInflater inflater;
     ArrayList<ServicesModel> list;
+    EnrichAcademyApplication application;
 
-    public CartAdapter(Context context, ArrayList<ServicesModel> list) {
-        this.context = context;
+    public CartAdapter(Activity activity, ArrayList<ServicesModel> list) {
+        this.activity = activity;
         this.list = list;
-        this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        this.inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        application = (EnrichAcademyApplication) activity.getApplicationContext();
     }
 
     @Override
@@ -37,9 +41,18 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     }
 
     @Override
-    public void onBindViewHolder(CartViewHolder holder, int position) {
-        holder.name.setText(list.get(position).name);
-        holder.rate.setText("Rs. " + list.get(position).DiscountPrice);
+    public void onBindViewHolder(CartViewHolder holder, final int position) {
+        final ServicesModel servicesModel = list.get(position);
+        holder.name.setText(servicesModel.name);
+        holder.rate.setText("Rs. " + servicesModel.DiscountPrice);
+        holder.removeFromCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                application.removeFromCart(servicesModel);
+                notifyDataSetChanged();
+                CartActivity.updateItemAndAmount();
+            }
+        });
     }
 
     @Override
@@ -50,12 +63,14 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     class CartViewHolder extends RecyclerView.ViewHolder {
 
         TextView name, rate;
+        ImageView removeFromCart;
 
         public CartViewHolder(View itemView) {
             super(itemView);
 
             name = (TextView) itemView.findViewById(R.id.cart_name);
             rate = (TextView) itemView.findViewById(R.id.cart_rate);
+            removeFromCart = (ImageView) itemView.findViewById(R.id.cart_delete_button);
         }
     }
 }

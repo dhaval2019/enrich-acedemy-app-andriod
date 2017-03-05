@@ -22,7 +22,7 @@ import enrich.enrichacademy.model.ServicesModel;
 public class CartActivity extends AppCompatActivity {
 
     RecyclerView cart_rv;
-    TextView totalItem, totalAmount;
+    static TextView totalItem, totalAmount;
     Button proceed;
     ImageView back;
 
@@ -30,7 +30,7 @@ public class CartActivity extends AppCompatActivity {
 
     ArrayList<ServicesModel> list;
 
-    EnrichAcademyApplication application;
+    static EnrichAcademyApplication application;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,5 +68,10 @@ public class CartActivity extends AppCompatActivity {
         adapter = new CartAdapter(CartActivity.this, list);
         cart_rv.setAdapter(adapter);
         cart_rv.setLayoutManager(new LinearLayoutManager(CartActivity.this));
+    }
+
+    public static void updateItemAndAmount() {
+        totalItem.setText("Total Services: " + application.getCartItemCount());
+        totalAmount.setText("Total: Rs. " + application.getTotalCartPrice());
     }
 }

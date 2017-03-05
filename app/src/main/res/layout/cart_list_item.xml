@@ -36,7 +36,7 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/services_expand_collapse_button"
+        android:id="@+id/cart_delete_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/services_list_image"

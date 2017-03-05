@@ -105,7 +105,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="This course will train the student in al the aesthetic skin treatments that are offered in beauty industry worldwide and give them the requisite theory and practical knowledge to perform these services professionally. "
                     android:textColor="@color/text_color_hint"
                     android:textSize="14sp" />
             </LinearLayout>
@@ -144,7 +143,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Anatomy and Physiology of skin. Introduction to Galvanic current, Hight frequency, vaccum suction, ultrasonic &amp; vapor ozone, micro-current, neuro-muscular stimulations."
                     android:textColor="@color/text_color_hint"
                     android:textSize="14sp" />
             </LinearLayout>
@@ -183,7 +181,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="This course will train the student in al the aesthetic skin treatments that are offered in beauty industry worldwide and give them the requisite theory and practical knowledge to perform these services professionally."
                     android:textColor="@color/text_color_hint"
                     android:textSize="14sp" />
             </LinearLayout>
@@ -192,7 +189,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="20dp">
+                android:padding="20dp"
+                android:visibility="gone">
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
@@ -225,6 +223,29 @@
                     android:text="Anatomy and Physiology of skin. Introduction to Galvanic current, Hight frequency, vaccum suction, ultrasonic &amp; vapor ozone, micro-current, neuro-muscular stimulations."
                     android:textColor="@color/text_color_hint"
                     android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- APPLY -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:background="@color/white"
+                android:elevation="10dp"
+                android:orientation="horizontal"
+                android:padding="20dp">
+
+                <enrich.enrichacademy.view.CustomButton
+                    android:id="@+id/course_apply_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_bg_curved_red"
+                    android:text="Apply"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
             </LinearLayout>
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>

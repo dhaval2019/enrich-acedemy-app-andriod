@@ -17,7 +17,8 @@ public class EnrichURLs {
     public static final String CATEGORIES = "api/Category";
     public static final String SERVICES = "api/Service";
     public static final String TOPOLOGY = "api/Topology";
-
+    public static final String TIMINGS = "api/Timing";
+    public static final String ORDER = "api/Order";
     public static final String ADD_CUSTOMER = "api/Customer";
 
 }

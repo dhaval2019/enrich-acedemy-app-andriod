@@ -6,8 +6,10 @@ import java.util.HashMap;
 
 import enrich.enrichacademy.model.CategoryModel;
 import enrich.enrichacademy.model.CourseModel;
+import enrich.enrichacademy.model.OrderModel;
 import enrich.enrichacademy.model.ResponseDS;
 import enrich.enrichacademy.model.ServicesModel;
+import enrich.enrichacademy.model.TimingModel;
 import enrich.enrichacademy.model.TopologyModel;
 import enrich.enrichacademy.model.UserModel;
 import retrofit2.Call;
@@ -45,4 +47,13 @@ public interface NetworkConnector {
 
     @POST("api/Customer")
     Call<UserModel> saveUserData(@Body UserModel userModel);
+
+    @GET
+    Call<TimingModel[]> getTimings(@Url String url);
+
+    @POST("api/Order")
+    Call<OrderModel> createOrder(@Body OrderModel orderModel);
+
+    @GET
+    Call<OrderModel[]> getOrders(@Url String url);
 }

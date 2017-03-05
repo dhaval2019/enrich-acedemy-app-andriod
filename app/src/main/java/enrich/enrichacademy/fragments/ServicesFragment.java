@@ -1,5 +1,6 @@
 package enrich.enrichacademy.fragments;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,15 +10,26 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.DatePicker;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
 import enrich.enrichacademy.R;
 import enrich.enrichacademy.activities.CartActivity;
 import enrich.enrichacademy.activities.CourseListActivity;
+import enrich.enrichacademy.activities.RegisterProfileActivity;
+import enrich.enrichacademy.activities.SearchActivity;
 import enrich.enrichacademy.adapters.CoursePagerAdapter;
 import enrich.enrichacademy.adapters.ServicesPagerAdapter;
 import enrich.enrichacademy.application.EnrichAcademyApplication;
@@ -43,6 +55,28 @@ public class ServicesFragment extends Fragment {
     ServicesPagerAdapter pagerAdapter;
     FloatingActionButton cart;
     EnrichAcademyApplication application;
+    TextView serviceDate, serviceDay;
+    LinearLayout serviceDateContainer;
+    ImageView search;
+
+    Date dateValue;
+    Calendar myCalendar = Calendar.getInstance();
+    DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+
+        @Override
+        public void onDateSet(DatePicker view, int year, int monthOfYear,
+                              int dayOfMonth) {
+            // TODO Auto-generated method stub
+            myCalendar.set(Calendar.YEAR, year);
+            myCalendar.set(Calendar.MONTH, monthOfYear);
+            myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+
+            serviceDate.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+            serviceDay.setText(new SimpleDateFormat("EEEE").format(myCalendar.getTime()));
+
+            dateValue = myCalendar.getTime();
+        }
+    };
 
     public static ServicesFragment getInstance() {
         return new ServicesFragment();
@@ -58,6 +92,27 @@ public class ServicesFragment extends Fragment {
         mServicesTabHost = (SlidingTabLayout) rootView.findViewById(R.id.services_tabs);
         mServicesViewPager = (ViewPager) rootView.findViewById(R.id.services_view_pager);
         cart = (FloatingActionButton) rootView.findViewById(R.id.cart);
+        serviceDate = (TextView) rootView.findViewById(R.id.service_date);
+        serviceDay = (TextView) rootView.findViewById(R.id.service_day);
+        serviceDateContainer = (LinearLayout) rootView.findViewById(R.id.service_date_container);
+        search = (ImageView) rootView.findViewById(R.id.search);
+
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ServicesFragment.this.getActivity(), SearchActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        serviceDateContainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new DatePickerDialog(ServicesFragment.this.getActivity(), date, myCalendar
+                        .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                        myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
 
         cart.setOnClickListener(new View.OnClickListener() {
             @Override

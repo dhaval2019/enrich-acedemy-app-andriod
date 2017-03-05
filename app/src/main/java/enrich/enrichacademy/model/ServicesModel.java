@@ -35,7 +35,7 @@ public class ServicesModel implements Parent<String>, Parcelable {
     @SerializedName("DiscountPrice")
     public double DiscountPrice;
 
-    public int selectedTimeSlotId;
+    public TimingModel TimingModel;
 
 
     protected ServicesModel(Parcel in) {
@@ -46,7 +46,24 @@ public class ServicesModel implements Parent<String>, Parcelable {
         TopologyId = in.readInt();
         ActualPrice = in.readDouble();
         DiscountPrice = in.readDouble();
-        selectedTimeSlotId = in.readInt();
+        TimingModel = in.readParcelable(enrich.enrichacademy.model.TimingModel.class.getClassLoader());
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(Id);
+        dest.writeString(name);
+        dest.writeStringArray(timings);
+        dest.writeString(description);
+        dest.writeInt(TopologyId);
+        dest.writeDouble(ActualPrice);
+        dest.writeDouble(DiscountPrice);
+        dest.writeParcelable(TimingModel, flags);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
     public static final Creator<ServicesModel> CREATOR = new Creator<ServicesModel>() {
@@ -60,23 +77,6 @@ public class ServicesModel implements Parent<String>, Parcelable {
             return new ServicesModel[size];
         }
     };
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(Id);
-        parcel.writeString(name);
-        parcel.writeStringArray(timings);
-        parcel.writeString(description);
-        parcel.writeInt(TopologyId);
-        parcel.writeDouble(ActualPrice);
-        parcel.writeDouble(DiscountPrice);
-        parcel.writeInt(selectedTimeSlotId);
-    }
 
     @Override
     public List<String> getChildList() {

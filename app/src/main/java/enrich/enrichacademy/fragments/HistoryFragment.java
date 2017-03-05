@@ -16,11 +16,20 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import enrich.enrichacademy.R;
 import enrich.enrichacademy.adapters.CurrentHistoryAdapter;
 import enrich.enrichacademy.model.HistoryModel;
+import enrich.enrichacademy.model.OrderModel;
+import enrich.enrichacademy.model.ServicesModel;
+import enrich.enrichacademy.model.TopologyModel;
+import enrich.enrichacademy.utils.EnrichURLs;
+import enrich.enrichacademy.utils.EnrichUtils;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by Admin on 21-Feb-17.
@@ -35,6 +44,8 @@ public class HistoryFragment extends Fragment {
     RecyclerView historyRecyclerView;
 
     CurrentHistoryAdapter currentHistoryAdapter;
+
+    ArrayList<OrderModel> orderModelsList;
 
     public static HistoryFragment getInstance() {
         return new HistoryFragment();
@@ -84,17 +95,7 @@ public class HistoryFragment extends Fragment {
             pastLabel.setTextColor(getActivity().getColor(R.color.text_color));
             pastSubLabel.setTextColor(getActivity().getColor(R.color.text_color));
 
-            List<HistoryModel> historyModelList = new ArrayList<>();
-            historyModelList.add(new HistoryModel("Hair Cut", "120", "10:00am, 23-12-2016"));
-            historyModelList.add(new HistoryModel("Hair Cut", "120", "10:00am, 23-12-2016"));
-            historyModelList.add(new HistoryModel("Hair Cut", "120", "10:00am, 23-12-2016"));
-            historyModelList.add(new HistoryModel("Hair Cut", "120", "10:00am, 23-12-2016"));
-            historyModelList.add(new HistoryModel("Hair Cut", "120", "10:00am, 23-12-2016"));
-            historyModelList.add(new HistoryModel("Hair Cut", "120", "10:00am, 23-12-2016"));
-
-            currentHistoryAdapter = new CurrentHistoryAdapter(HistoryFragment.this.getActivity(), historyModelList);
-            historyRecyclerView.setAdapter(currentHistoryAdapter);
-
+            getOrders();
         } else {
             // BACKGROUND
             currentTab.setBackground(getActivity().getDrawable(R.drawable.history_current_bg_unselected));
@@ -106,18 +107,61 @@ public class HistoryFragment extends Fragment {
             pastLabel.setTextColor(getActivity().getColor(R.color.white));
             pastSubLabel.setTextColor(getActivity().getColor(R.color.white));
 
-            List<HistoryModel> historyModelList = new ArrayList<>();
-            historyModelList.add(new HistoryModel("Hair Cut", "120", "10:00am, 23-12-2016"));
-            historyModelList.add(new HistoryModel("Hair Cut", "120", "10:00am, 23-12-2016"));
-            historyModelList.add(new HistoryModel("Hair Cut", "120", "10:00am, 23-12-2016"));
-            historyModelList.add(new HistoryModel("Hair Cut", "120", "10:00am, 23-12-2016"));
-            historyModelList.add(new HistoryModel("Hair Cut", "120", "10:00am, 23-12-2016"));
-            historyModelList.add(new HistoryModel("Hair Cut", "120", "10:00am, 23-12-2016"));
-
-            currentHistoryAdapter = new CurrentHistoryAdapter(HistoryFragment.this.getActivity(), historyModelList);
-            historyRecyclerView.setAdapter(currentHistoryAdapter);
+            getOrders();
         }
 
         historyRecyclerView.setLayoutManager(new LinearLayoutManager(HistoryFragment.this.getActivity()));
     }
+
+    public void getOrders() {
+        EnrichUtils.showProgressDialog(HistoryFragment.this.getActivity());
+        Call<OrderModel[]> call = EnrichUtils.getRetrofitForEnrich().getOrders(EnrichURLs.ENRICH_HOST + EnrichURLs.ORDER);
+        call.enqueue(new Callback<OrderModel[]>() {
+            @Override
+            public void onResponse(Call<OrderModel[]> call, Response<OrderModel[]> response) {
+                EnrichUtils.log("" + response.code());
+                orderModelsList = new ArrayList<OrderModel>();
+                for (int i = 0; i < response.body().length; i++) {
+                    orderModelsList.add(response.body()[i]);
+                }
+
+                fetchAllServices(orderModelsList);
+
+            }
+
+            @Override
+            public void onFailure(Call<OrderModel[]> call, Throwable t) {
+                EnrichUtils.log("" + t.getLocalizedMessage());
+                EnrichUtils.cancelCurrentDialog(HistoryFragment.this.getActivity());
+            }
+        });
+    }
+
+    private void fetchAllServices(final ArrayList<OrderModel> orderModelsList) {
+        Call<ServicesModel[]> getCourses = EnrichUtils.getRetrofit().getServices(EnrichURLs.ENRICH_HOST + EnrichURLs.SERVICES);
+        getCourses.enqueue(new Callback<ServicesModel[]>() {
+            @Override
+            public void onResponse(Call<ServicesModel[]> call, Response<ServicesModel[]> response) {
+
+                ServicesModel[] servicesModels = response.body();
+                for (int i = 0; i < servicesModels.length; i++) {
+                    for (int j = 0; j < orderModelsList.size(); j++)
+                        if (orderModelsList.get(j).ServiceId == servicesModels[i].Id) {
+                            orderModelsList.get(j).serviceName = servicesModels[i].name;
+                        }
+                }
+                currentHistoryAdapter = new CurrentHistoryAdapter(HistoryFragment.this.getActivity(), orderModelsList);
+                historyRecyclerView.setAdapter(currentHistoryAdapter);
+
+                EnrichUtils.cancelCurrentDialog(HistoryFragment.this.getActivity());
+            }
+
+            @Override
+            public void onFailure(Call<ServicesModel[]> call, Throwable t) {
+                EnrichUtils.log("" + t.getLocalizedMessage());
+                EnrichUtils.cancelCurrentDialog(HistoryFragment.this.getActivity());
+            }
+        });
+    }
+
 }

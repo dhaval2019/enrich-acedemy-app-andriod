@@ -53,7 +53,8 @@
                     android:id="@+id/location"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:src="@drawable/location" />
+                    android:src="@drawable/location"
+                    android:visibility="gone" />
 
                 <ImageView
                     android:id="@+id/search"

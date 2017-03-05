@@ -12,7 +12,7 @@
         android:layout_height="60dp"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        android:src="@drawable/sample" />
+        android:src="@drawable/history_default" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -60,7 +60,8 @@
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@+id/current_cancel"
         android:padding="10dp"
-        android:src="@drawable/rupees" />
+        android:src="@drawable/rupees"
+        android:visibility="gone" />
 
     <ImageView
         android:id="@+id/current_cancel"

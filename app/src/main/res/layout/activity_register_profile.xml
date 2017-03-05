@@ -54,7 +54,7 @@
                         android:layout_width="130dp"
                         android:layout_height="130dp"
                         android:layout_gravity="center_horizontal"
-                        android:src="@drawable/sample" />
+                        android:src="@drawable/profile_default" />
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -283,7 +283,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_bg_curved_red"
-                android:text="SING UP"
+                android:text="SIGN UP"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
 

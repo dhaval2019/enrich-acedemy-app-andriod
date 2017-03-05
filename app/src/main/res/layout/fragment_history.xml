@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="Registration"
+            android:text="History"
             android:textColor="@color/text_color"
             android:textSize="20sp"
             app:font_type="bold" />

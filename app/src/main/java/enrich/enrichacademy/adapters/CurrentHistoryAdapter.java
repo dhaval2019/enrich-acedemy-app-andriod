@@ -8,10 +8,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 import enrich.enrichacademy.R;
 import enrich.enrichacademy.model.HistoryModel;
+import enrich.enrichacademy.model.OrderModel;
 
 /**
  * Created by Admin on 22-Feb-17.
@@ -21,9 +24,9 @@ public class CurrentHistoryAdapter extends RecyclerView.Adapter<CurrentHistoryAd
 
     Context context;
     LayoutInflater inflater;
-    List<HistoryModel> list;
+    ArrayList<OrderModel> list;
 
-    public CurrentHistoryAdapter(Context context, List<HistoryModel> list) {
+    public CurrentHistoryAdapter(Context context, ArrayList<OrderModel> list) {
         this.context = context;
         this.list = list;
         this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -37,9 +40,9 @@ public class CurrentHistoryAdapter extends RecyclerView.Adapter<CurrentHistoryAd
 
     @Override
     public void onBindViewHolder(CurrentViewHolder holder, int position) {
-        holder.name.setText(list.get(position).name);
-        holder.rate.setText(list.get(position).rate);
-        holder.time.setText(list.get(position).time);
+        holder.name.setText(list.get(position).serviceName);
+        holder.rate.setText("Rs. " + list.get(position).Amount);
+        holder.time.setText(new SimpleDateFormat("dd/MM/yyyy").format(list.get(position).BookingDate));
     }
 
     @Override
