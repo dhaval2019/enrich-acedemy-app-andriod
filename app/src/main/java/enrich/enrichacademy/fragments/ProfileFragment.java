@@ -1,6 +1,7 @@
 package enrich.enrichacademy.fragments;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -53,6 +54,10 @@ public class ProfileFragment extends Fragment {
         male = (RadioButton) rootView.findViewById(R.id.profile_user_gender_male);
         female = (RadioButton) rootView.findViewById(R.id.profile_user_gender_female);
         logout = (Button) rootView.findViewById(R.id.profile_signout_btn);
+
+        Typeface typeface = Typeface.createFromAsset(getResources().getAssets(), "fonts/Quicksand-Bold.otf");
+        male.setTypeface(typeface);
+        female.setTypeface(typeface);
 
         male.setClickable(false);
         female.setClickable(false);

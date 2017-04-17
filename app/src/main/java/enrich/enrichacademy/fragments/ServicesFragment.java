@@ -168,7 +168,7 @@ public class ServicesFragment extends Fragment {
     }
 
     public void mapTopologiesAndServices(ServicesModel[] servicesModels, TopologyModel[] topologyModels) {
-        if (servicesModels != null && topologyModels.length > 0 && servicesModels != null && topologyModels.length > 0) {
+        if (servicesModels != null && servicesModels.length > 0 && topologyModels != null && topologyModels.length > 0) {
             EnrichUtils.cancelCurrentDialog(getActivity());
             HashMap<Integer, ArrayList<ServicesModel>> servicesMap = new HashMap<>();
             for (int i = 0; i < servicesModels.length; i++) {

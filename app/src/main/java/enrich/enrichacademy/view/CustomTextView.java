@@ -13,7 +13,7 @@ import enrich.enrichacademy.utils.Constants;
  * Created by Admin on 21-Feb-17.
  */
 
-public class CustomTextView extends TextView {
+public class CustomTextView extends android.support.v7.widget.AppCompatTextView {
 
     public static Typeface REGULAR_TTF;
     public static Typeface BOLD_TTF;

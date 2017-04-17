@@ -37,7 +37,6 @@ public class ServicesModel implements Parent<String>, Parcelable {
 
     public TimingModel TimingModel;
 
-
     protected ServicesModel(Parcel in) {
         Id = in.readInt();
         name = in.readString();

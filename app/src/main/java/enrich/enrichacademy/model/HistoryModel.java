@@ -19,6 +19,7 @@ public class HistoryModel implements Parcelable {
         this.time = time;
     }
 
+
     protected HistoryModel(Parcel in) {
         name = in.readString();
         rate = in.readString();

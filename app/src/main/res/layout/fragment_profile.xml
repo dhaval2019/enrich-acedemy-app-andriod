@@ -44,6 +44,7 @@
                 android:orientation="vertical">
 
                 <LinearLayout
+                    android:id="@+id/profile_image"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -74,9 +75,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="NAME"
-                        android:textColor="@color/text_color"
+                        android:textColor="@color/text_color_hint"
                         android:textSize="15sp"
-                        app:font_type="bold" />
+                        app:font_type="reqular" />
 
                     <enrich.enrichacademy.view.CustomTextView
                         android:id="@+id/profile_user_name"
@@ -110,9 +111,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="GENDER"
-                        android:textColor="@color/text_color"
+                        android:textColor="@color/text_color_hint"
                         android:textSize="15sp"
-                        app:font_type="bold" />
+                        app:font_type="reqular" />
 
                     <RadioGroup
                         android:layout_width="match_parent"
@@ -130,7 +131,7 @@
                             android:paddingRight="5dp"
                             android:paddingTop="5dp"
                             android:text="Male"
-                            android:textColor="@color/text_color_hint"
+                            android:textColor="@color/text_color"
                             android:textSize="15dp" />
 
                         <RadioButton
@@ -144,7 +145,7 @@
                             android:paddingRight="5dp"
                             android:paddingTop="5dp"
                             android:text="Female"
-                            android:textColor="@color/text_color_hint"
+                            android:textColor="@color/text_color"
                             android:textSize="15dp" />
 
                     </RadioGroup>
@@ -166,9 +167,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="DATE OF BIRTH"
-                        android:textColor="@color/text_color"
+                        android:textColor="@color/text_color_hint"
                         android:textSize="15sp"
-                        app:font_type="bold" />
+                        app:font_type="reqular" />
 
                     <enrich.enrichacademy.view.CustomTextView
                         android:id="@+id/profile_user_dob"
@@ -198,12 +199,13 @@
                     android:padding="20dp">
 
                     <enrich.enrichacademy.view.CustomTextView
+                        android:id="@+id/customTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="EMAIL"
-                        android:textColor="@color/text_color"
+                        android:textColor="@color/text_color_hint"
                         android:textSize="15sp"
-                        app:font_type="bold" />
+                        app:font_type="reqular" />
 
                     <enrich.enrichacademy.view.CustomTextView
                         android:id="@+id/profile_user_email"
