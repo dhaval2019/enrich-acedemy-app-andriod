@@ -32,14 +32,31 @@
             android:textSize="15sp"
             app:font_type="bold" />
 
-        <enrich.enrichacademy.view.CustomTextView
-            android:id="@+id/service_rate"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Rs 120/-"
-            android:textColor="@color/text_color_services_rate"
-            android:textSize="12sp"
-            app:font_type="bold" />
+            android:orientation="horizontal">
+
+            <enrich.enrichacademy.view.CustomTextView
+                android:id="@+id/service_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rs 120/-"
+                android:textColor="@color/colorAccent"
+                android:textSize="13sp"
+                app:font_type="bold" />
+
+            <enrich.enrichacademy.view.CustomTextView
+                android:id="@+id/service_original_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="Rs 120/-"
+                android:textColor="@color/text_color_services_rate"
+                android:textSize="12sp"
+                app:font_type="bold"
+                app:strike_text="true" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

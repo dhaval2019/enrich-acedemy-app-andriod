@@ -47,7 +47,7 @@ public class ServicesTabFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_services_tab, container, false);
 
-        servicesTabRecyclerView = (RecyclerView) rootView.findViewById(R.id.services_tab_rv);
+        servicesTabRecyclerView = rootView.findViewById(R.id.services_tab_rv);
 
         adapter = new ServicesTabAdapter(getFragmentManager(), ServicesTabFragment.this.getActivity(), servicesList);
         servicesTabRecyclerView.setAdapter(adapter);

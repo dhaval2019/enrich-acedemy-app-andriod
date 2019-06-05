@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.afollestad:sectioned-recyclerview:0.5.0@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e96fb83d7c327a9c82b1b4bef2855047/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e96fb83d7c327a9c82b1b4bef2855047/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.afollestad/sectioned-recyclerview/0.5.0/276c2313e17db25431ba3bf2bf75078afbd99791/sectioned-recyclerview-0.5.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

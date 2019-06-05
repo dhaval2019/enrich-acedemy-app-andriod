@@ -6,11 +6,12 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import enrich.enrichacademy.fragments.CoursesTabFragment;
 import enrich.enrichacademy.model.CategoryModel;
+import enrich.enrichacademy.model.CourseCategoryModel;
 import enrich.enrichacademy.model.CourseModel;
+import enrich.enrichacademy.model.TopologyModel;
 
 /**
  * Created by Admin on 22-Feb-17.
@@ -19,37 +20,37 @@ import enrich.enrichacademy.model.CourseModel;
 public class CoursePagerAdapter extends FragmentStatePagerAdapter {
 
     ArrayList<CourseModel> coursesList;
-    ArrayList<CategoryModel> categoryModelsList;
-    CategoryModel[] categoryModels;
+    ArrayList<CourseCategoryModel> topologyModelsList;
+    CourseCategoryModel[] topologyModels;
     HashMap<Integer, ArrayList<CourseModel>> coursesMap;
 
-    public CoursePagerAdapter(FragmentManager fm, CategoryModel[] categoryModels, ArrayList<CourseModel> coursesList, HashMap<Integer, ArrayList<CourseModel>> coursesMap) {
+    public CoursePagerAdapter(FragmentManager fm, CourseCategoryModel[] topologyModels, ArrayList<CourseModel> coursesList, HashMap<Integer, ArrayList<CourseModel>> coursesMap) {
         super(fm);
-        this.categoryModels = categoryModels;
+        this.topologyModels = topologyModels;
         this.coursesList = coursesList;
         this.coursesMap = coursesMap;
-        categoryModelsList = new ArrayList<>();
-        initAllData(categoryModels);
+        topologyModelsList = new ArrayList<>();
+        initAllData(topologyModels);
     }
 
-    private void initAllData(CategoryModel[] allServiceTopologyModels) {
-        for (CategoryModel serviceTopologyModel : allServiceTopologyModels)
+    private void initAllData(CourseCategoryModel[] topologyModels) {
+        for (CourseCategoryModel serviceTopologyModel : topologyModels)
             if (coursesMap.containsKey(serviceTopologyModel.Id))
-                categoryModelsList.add(serviceTopologyModel);
+                topologyModelsList.add(serviceTopologyModel);
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return categoryModelsList.get(position).Name;
+        return topologyModelsList.get(position).Name;
     }
 
     @Override
     public Fragment getItem(int position) {
-        return CoursesTabFragment.getInstance(coursesMap.get(categoryModelsList.get(position).Id));
+        return CoursesTabFragment.getInstance(coursesMap.get(topologyModelsList.get(position).Id));
     }
 
     @Override
     public int getCount() {
-        return categoryModelsList.size();
+        return topologyModelsList.size();
     }
 }

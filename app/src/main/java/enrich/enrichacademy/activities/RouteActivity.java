@@ -49,7 +49,7 @@ public class RouteActivity extends AppCompatActivity {
         mSignUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(RouteActivity.this, OTPVerificationActivity.class);
+                Intent intent = new Intent(RouteActivity.this, RegisterProfileActivity.class);
                 startActivity(intent);
                 finish();
             }

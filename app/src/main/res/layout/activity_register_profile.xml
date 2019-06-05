@@ -48,7 +48,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center_horizontal"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
                     <enrich.enrichacademy.view.CircleImageView
                         android:layout_width="130dp"
@@ -86,6 +87,42 @@
                         android:background="@android:color/transparent"
                         android:hint="Enter your name"
                         android:inputType="textPersonName|textCapWords"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:textColor="@color/text_color"
+                        android:textColorHint="@color/text_color_hint"
+                        android:textSize="15sp"
+                        app:font_type="bold" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="#e8ebef" />
+
+                <!-- MOBILE NUMBER -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <enrich.enrichacademy.view.CustomTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Phone Number"
+                        android:textColor="@color/text_color"
+                        android:textSize="15sp"
+                        app:font_type="bold" />
+
+                    <enrich.enrichacademy.view.CustomEditText
+                        android:id="@+id/user_mobile_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@android:color/transparent"
+                        android:hint="Enter your phone number"
+                        android:inputType="number"
                         android:paddingBottom="5dp"
                         android:paddingTop="5dp"
                         android:textColor="@color/text_color"

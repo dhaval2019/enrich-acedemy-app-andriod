@@ -2,6 +2,7 @@ package enrich.enrichacademy.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.widget.TextView;
@@ -29,6 +30,10 @@ public class CustomTextView extends android.support.v7.widget.AppCompatTextView 
         if (a.hasValue(R.styleable.CustomTextView_font_type)) {
             int value = a.getInt(R.styleable.CustomTextView_font_type, 0);
             setCustomTypeFace(context, value);
+        }
+        if (a.hasValue(R.styleable.CustomTextView_strike_text)) {
+            if (a.getBoolean(R.styleable.CustomTextView_strike_text, false))
+                setPaintFlags(getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         }
     }
 

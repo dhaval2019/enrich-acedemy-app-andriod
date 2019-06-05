@@ -2,6 +2,8 @@ package enrich.enrichacademy.application;
 
 import android.app.Application;
 
+
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -22,6 +24,13 @@ public class EnrichAcademyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         cartList = new ArrayList<>();
+
+//        OneSignal.startInit(this)
+//                .setNotificationReceivedHandler(new NotificationReceivedHandler())
+//                .setNotificationOpenedHandler(new NotificationOpenedHandler())
+//                .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
+//                .unsubscribeWhenNotificationsAreDisabled(true)
+//                .init();
     }
 
     public void addToCart(ServicesModel servicesModel) {
@@ -29,14 +38,14 @@ public class EnrichAcademyApplication extends Application {
             return;
 
         if (alreadyExist(servicesModel)) {
-            EnrichUtils.showMessage(this, servicesModel.name + " already in cart");
+            EnrichUtils.showMessage(this, servicesModel.Name + " already in cart");
             return;
         }
 
         cartList.add(servicesModel);
 
         EnrichUtils.log("" + cartList.size());
-        EnrichUtils.showMessage(this, servicesModel.name + " added to cart");
+        EnrichUtils.showMessage(this, servicesModel.Name + " added to cart");
     }
 
     public boolean isCartFull() {
@@ -89,8 +98,8 @@ public class EnrichAcademyApplication extends Application {
     public double getTotalCartPrice() {
         double totalPrice = 0;
         for (int i = 0; i < cartList.size(); i++)
-            if (cartList.get(i).DiscountPrice != 0)
-                totalPrice += cartList.get(i).DiscountPrice;
+            if (cartList.get(i).Price != 0)
+                totalPrice += cartList.get(i).Price;
         return totalPrice;
     }
 

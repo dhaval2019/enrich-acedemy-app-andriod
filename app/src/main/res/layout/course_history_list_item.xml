@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/course_history_list_image"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/history_default" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_toLeftOf="@+id/course_history_pay"
+        android:layout_toRightOf="@+id/course_history_list_image"
+        android:orientation="vertical">
+
+        <enrich.enrichacademy.view.CustomTextView
+            android:id="@+id/course_history_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hair Cut"
+            android:textColor="@color/text_color"
+            android:textSize="16sp"
+            app:font_type="bold" />
+
+        <enrich.enrichacademy.view.CustomTextView
+            android:id="@+id/course_history_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rs 120/-"
+            android:textColor="@color/text_color_services_rate"
+            android:textSize="12sp"
+            app:font_type="bold" />
+
+        <enrich.enrichacademy.view.CustomTextView
+            android:id="@+id/course_history_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10:00am, 23-12-2016"
+            android:textColor="@color/colorAccent"
+            android:textSize="12sp"
+            app:font_type="bold" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/course_history_pay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/course_history_list_image"
+        android:layout_alignTop="@+id/course_history_list_image"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/course_history_cancel"
+        android:padding="10dp"
+        android:src="@drawable/rupees"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/course_history_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/course_history_list_image"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/course_history_list_image"
+        android:layout_centerVertical="true"
+        android:padding="10dp"
+        android:src="@drawable/cross" />
+
+</RelativeLayout>

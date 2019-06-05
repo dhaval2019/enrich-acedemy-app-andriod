@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/search_add_button"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <enrich.enrichacademy.view.CustomTextView
+                android:id="@+id/description_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Description"
+                android:textColor="@color/text_color"
+                android:textSize="15sp"
+                app:font_type="bold" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="0.5dp"
+                android:layout_alignBottom="@+id/description_label"
+                android:layout_alignLeft="@+id/description_label"
+                android:layout_alignRight="@+id/description_label"
+                android:layout_marginTop="3dp"
+                android:background="#000000" />
+
+        </RelativeLayout>
+
+        <enrich.enrichacademy.view.CustomTextView
+            android:id="@+id/search_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="This course will train the student in al the aesthetic skin treatments that are offered in beauty industry worldwide and give them the requisite theory and practical knowledge to perform these services professionally. practical knowledge to perform these services professionally."
+            android:textColor="@color/text_color"
+            android:textSize="12sp"
+            app:font_type="reqular" />
+    </LinearLayout>
+
+    <enrich.enrichacademy.view.CustomTextView
+        android:id="@+id/search_add_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/button_bg_round_rect_red"
+        android:paddingBottom="10dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="10dp"
+        android:text="ADD"
+        android:textColor="@color/white"
+        android:textSize="15dp"
+        app:font_type="bold" />
+
+</RelativeLayout>

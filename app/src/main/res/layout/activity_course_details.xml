@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_course_details"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#f4f4f4"
-    android:orientation="vertical"
-    tools:context="enrich.enrichacademy.activities.CourseDetailsActivity">
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:id="@+id/activity_course_details"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#f4f4f4"
+              android:orientation="vertical"
+              tools:context="enrich.enrichacademy.activities.CourseDetailsActivity">
 
     <!-- TOOLBAR -->
     <RelativeLayout
@@ -20,14 +20,15 @@
             android:id="@+id/back_button"
             android:layout_width="?attr/actionBarSize"
             android:layout_height="?attr/actionBarSize"
+            android:layout_alignParentLeft="true"
             android:padding="10dp"
-            android:src="@drawable/ic_keyboard_arrow_left_black_24dp" />
+            android:src="@drawable/ic_keyboard_arrow_left_black_24dp"/>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:layout_centerInParent="true"
-            android:background="@color/white"
+            android:layout_toRightOf="@+id/back_button"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -40,7 +41,8 @@
                 android:text="Beauty Courses"
                 android:textColor="@color/text_color"
                 android:textSize="20sp"
-                app:font_type="bold" />
+                android:visibility="gone"
+                app:font_type="bold"/>
 
             <enrich.enrichacademy.view.CustomTextView
                 android:id="@+id/toolbar_sub_title"
@@ -48,10 +50,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="CIBTAC B012"
+                android:text="CIBTAC B0121"
                 android:textColor="@color/text_color_hint"
                 android:textSize="16sp"
-                app:font_type="bold" />
+                app:font_type="bold"/>
         </LinearLayout>
     </RelativeLayout>
 
@@ -68,7 +70,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/courses_banner" />
+                android:src="@drawable/courses_banner"/>
 
 
             <LinearLayout
@@ -89,7 +91,8 @@
                         android:paddingRight="2dp"
                         android:text="Overview"
                         android:textColor="@color/text_color"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        app:font_type="reqular"/>
 
                     <View
                         android:layout_width="match_parent"
@@ -97,7 +100,7 @@
                         android:layout_alignBottom="@+id/overview_label"
                         android:layout_alignLeft="@+id/overview_label"
                         android:layout_alignRight="@+id/overview_label"
-                        android:background="@color/text_color" />
+                        android:background="@color/text_color"/>
                 </RelativeLayout>
 
                 <enrich.enrichacademy.view.CustomTextView
@@ -106,7 +109,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:textColor="@color/text_color_hint"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"/>
             </LinearLayout>
 
             <LinearLayout
@@ -127,7 +130,8 @@
                         android:paddingRight="2dp"
                         android:text="Goals"
                         android:textColor="@color/text_color"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        app:font_type="reqular"/>
 
                     <View
                         android:layout_width="match_parent"
@@ -135,7 +139,7 @@
                         android:layout_alignBottom="@+id/goals_label"
                         android:layout_alignLeft="@+id/goals_label"
                         android:layout_alignRight="@+id/goals_label"
-                        android:background="@color/text_color" />
+                        android:background="@color/text_color"/>
                 </RelativeLayout>
 
                 <enrich.enrichacademy.view.CustomTextView
@@ -144,7 +148,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:textColor="@color/text_color_hint"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"/>
             </LinearLayout>
 
             <LinearLayout
@@ -165,7 +169,8 @@
                         android:paddingRight="2dp"
                         android:text="Requirements"
                         android:textColor="@color/text_color"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        app:font_type="reqular"/>
 
                     <View
                         android:layout_width="match_parent"
@@ -173,7 +178,7 @@
                         android:layout_alignBottom="@+id/requirements_label"
                         android:layout_alignLeft="@+id/requirements_label"
                         android:layout_alignRight="@+id/requirements_label"
-                        android:background="@color/text_color" />
+                        android:background="@color/text_color"/>
                 </RelativeLayout>
 
                 <enrich.enrichacademy.view.CustomTextView
@@ -182,7 +187,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:textColor="@color/text_color_hint"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"/>
             </LinearLayout>
 
             <LinearLayout
@@ -204,7 +209,7 @@
                         android:paddingRight="2dp"
                         android:text="Evaluations"
                         android:textColor="@color/text_color"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"/>
 
                     <View
                         android:layout_width="match_parent"
@@ -212,7 +217,7 @@
                         android:layout_alignBottom="@+id/evaluations_label"
                         android:layout_alignLeft="@+id/evaluations_label"
                         android:layout_alignRight="@+id/evaluations_label"
-                        android:background="@color/text_color" />
+                        android:background="@color/text_color"/>
                 </RelativeLayout>
 
                 <enrich.enrichacademy.view.CustomTextView
@@ -222,11 +227,11 @@
                     android:layout_marginTop="10dp"
                     android:text="Anatomy and Physiology of skin. Introduction to Galvanic current, Hight frequency, vaccum suction, ultrasonic &amp; vapor ozone, micro-current, neuro-muscular stimulations."
                     android:textColor="@color/text_color_hint"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"/>
             </LinearLayout>
 
             <!-- APPLY -->
-            <LinearLayout
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -235,7 +240,7 @@
                 android:background="@color/white"
                 android:elevation="10dp"
                 android:orientation="horizontal"
-                android:padding="20dp">
+                android:padding="15dp">
 
                 <enrich.enrichacademy.view.CustomButton
                     android:id="@+id/course_apply_btn"
@@ -244,9 +249,19 @@
                     android:background="@drawable/button_bg_curved_red"
                     android:text="Apply"
                     android:textColor="@color/white"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"/>
 
-            </LinearLayout>
+                <enrich.enrichacademy.view.CustomButton
+                    android:id="@+id/pay_button_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_bg_curved_teal"
+                    android:text="PAY"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:visibility="gone"/>
+
+            </FrameLayout>
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 </LinearLayout>

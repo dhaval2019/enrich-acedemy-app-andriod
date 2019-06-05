@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/white"
-    android:padding="10dp">
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:padding="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginLeft="10dp"
-        android:layout_toLeftOf="@+id/services_expand_collapse_button"
+        android:layout_toLeftOf="@+id/cart_delete_button"
         android:layout_toRightOf="@+id/services_list_image"
         android:orientation="vertical">
 
@@ -22,17 +22,46 @@
             android:text="Hair Cut"
             android:textColor="@color/text_color"
             android:textSize="16sp"
-            app:font_type="bold" />
+            app:font_type="bold"/>
 
-        <enrich.enrichacademy.view.CustomTextView
-            android:id="@+id/cart_rate"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="Rs 120/-"
-            android:textColor="@color/text_color_services_rate"
-            android:textSize="16sp"
-            app:font_type="reqular" />
+            android:orientation="horizontal"
+            android:layout_marginTop="2dp"
+            android:gravity="center_vertical">
+
+            <enrich.enrichacademy.view.CustomTextView
+                android:id="@+id/cart_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rs 120/-"
+                android:textColor="@color/text_color_services_rate"
+                android:layout_gravity="center_vertical"
+                android:textSize="14sp"
+                android:layout_marginTop="3px"
+                android:layout_marginBottom="3px"
+                app:font_type="reqular"/>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#e5e5e5"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"/>
+
+            <enrich.enrichacademy.view.CustomTextView
+                android:id="@+id/selected_time_slot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="21/07/2017 @10:00 am"
+                android:textColor="@color/text_color_hint"
+                android:textSize="14sp"
+                android:layout_marginTop="3px"
+                android:layout_marginBottom="3px"
+                app:font_type="reqular" />
+
+        </LinearLayout>
     </LinearLayout>
 
     <ImageView
@@ -44,6 +73,6 @@
         android:layout_alignTop="@+id/services_list_image"
         android:layout_centerVertical="true"
         android:padding="10dp"
-        android:src="@drawable/cross" />
+        android:src="@drawable/cross"/>
 
 </RelativeLayout>

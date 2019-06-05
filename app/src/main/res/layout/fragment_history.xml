@@ -1,29 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
     <!-- TOOLBAR -->
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="wrap_content"
         android:background="@color/white"
-        android:elevation="5dp"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:elevation="5dp">
+
+        <ImageView
+            android:id="@+id/history_back_button"
+            android:layout_width="?attr/actionBarSize"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_alignParentLeft="true"
+            android:padding="10dp"
+            android:src="@drawable/ic_keyboard_arrow_left_black_24dp"/>
 
         <enrich.enrichacademy.view.CustomTextView
+            android:id="@+id/toolbar_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
             android:layout_gravity="center"
             android:gravity="center"
             android:text="History"
             android:textColor="@color/text_color"
             android:textSize="20sp"
-            app:font_type="bold" />
-    </LinearLayout>
+            app:font_type="bold"/>
+    </RelativeLayout>
 
     <!-- CURRENT / PAST SWITCH -->
     <LinearLayout
@@ -53,7 +61,8 @@
                 android:layout_height="match_parent"
                 android:text="Current"
                 android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                app:font_type="reqular"/>
 
             <enrich.enrichacademy.view.CustomTextView
                 android:id="@+id/current_tab_sub_label"
@@ -61,7 +70,8 @@
                 android:layout_height="wrap_content"
                 android:text="Transaction"
                 android:textColor="@color/white"
-                android:textSize="11sp" />
+                android:textSize="11sp"
+                app:font_type="reqular"/>
         </LinearLayout>
 
         <LinearLayout
@@ -83,7 +93,8 @@
                 android:layout_height="wrap_content"
                 android:text="Past"
                 android:textColor="@color/text_color"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                app:font_type="reqular"/>
 
             <enrich.enrichacademy.view.CustomTextView
                 android:id="@+id/past_tab_sub_label"
@@ -91,7 +102,8 @@
                 android:layout_height="wrap_content"
                 android:text="Transaction"
                 android:textColor="@color/text_color"
-                android:textSize="11sp" />
+                android:textSize="11sp"
+                app:font_type="reqular"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -100,5 +112,5 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="10dp"
-        android:background="@color/white" />
+        android:background="@color/white"/>
 </LinearLayout>

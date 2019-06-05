@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "173307794026",
+    "firebase_url": "https://enrich-academy.firebaseio.com",
+    "project_id": "enrich-academy",
+    "storage_bucket": "enrich-academy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:173307794026:android:61841ae796668cc1",
+        "android_client_info": {
+          "package_name": "enrich.enrichacademy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "173307794026-2qe9n7j852biqfn61gbau6kkko1vc9io.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxwNCRVmXIgh_-oWjSQ8UgVcmF8ZgTEXo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

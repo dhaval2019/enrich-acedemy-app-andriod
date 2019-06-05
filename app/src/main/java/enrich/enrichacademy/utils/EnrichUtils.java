@@ -19,6 +19,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import enrich.enrichacademy.activities.CourseDetailsActivity;
+import enrich.enrichacademy.model.UserModel;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -36,7 +38,7 @@ public class EnrichUtils {
     static LoadingDialogBox pDialog;
     static Runnable cancelDialog = new Runnable() {
         @Override
-        public void run() {
+        public void run () {
             try {
                 if (pDialog != null)
                     pDialog.cancel();
@@ -51,7 +53,7 @@ public class EnrichUtils {
         Activity activity;
         String message;
 
-        public DialogDisplay updateActivity(Activity activity, String message) {
+        public DialogDisplay updateActivity (Activity activity, String message) {
             this.activity = activity;
             this.message = message;
             return this;
@@ -59,7 +61,7 @@ public class EnrichUtils {
 
 
         @Override
-        public void run() {
+        public void run () {
             try {
                 if (pDialog != null) {
                     pDialog.cancel();
@@ -75,13 +77,13 @@ public class EnrichUtils {
         }
     }
 
-    public static void showProgressDialog(final Activity activity) {
-        Log.e(Constants.LOG_TAG, "Showing dialog... :)");
+    public static void showProgressDialog (final Activity activity) {
+//        Log.e(Constants.LOG_TAG, "Showing dialog... :)");
         activity.runOnUiThread(showDialog.updateActivity(activity, null));
     }
 
-    public static void cancelCurrentDialog(Activity activity) {
-        Log.e(Constants.LOG_TAG, "Canceling dialog... :|");
+    public static void cancelCurrentDialog (Activity activity) {
+//        Log.e(Constants.LOG_TAG, "Canceling dialog... :|");
         if (pDialog != null && activity != null) {
             new Handler().postDelayed(cancelDialog, 150);
         }
@@ -93,7 +95,7 @@ public class EnrichUtils {
      * @param data To check
      * @return
      */
-    public static boolean notNull(String data) {
+    public static boolean notNull (String data) {
         if (data == null || data.equals("") || data.isEmpty())
             return false;
         return true;
@@ -105,7 +107,7 @@ public class EnrichUtils {
      * @param text To check
      * @return
      */
-    public static boolean notBlank(String text) {
+    public static boolean notBlank (String text) {
         if (text == null || text.trim().length() == 0)
             return false;
         return true;
@@ -116,7 +118,7 @@ public class EnrichUtils {
      *
      * @param logData
      */
-    public static void log(String logData) {
+    public static void log (String logData) {
         Log.e(Constants.LOG_TAG, logData + "");
     }
 
@@ -126,7 +128,7 @@ public class EnrichUtils {
      * @param email
      * @return
      */
-    public static boolean isValidEmailId(String email) {
+    public static boolean isValidEmailId (String email) {
         String emailPattern = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
                 + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
         Pattern p = Pattern.compile(emailPattern);
@@ -140,12 +142,12 @@ public class EnrichUtils {
      * @param context
      * @param message
      */
-    public static void showMessage(Context context, String message) {
+    public static void showMessage (Context context, String message) {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
     }
 
 
-    public static NetworkConnector getRetrofit() {
+    public static NetworkConnector getRetrofit () {
         if (EnrichURLs.retrofitNetworkHandler == null) {
 
             OkHttpClient.Builder httpClient = new OkHttpClient.Builder()
@@ -155,13 +157,13 @@ public class EnrichUtils {
 
             httpClient.addInterceptor(new Interceptor() {
                 @Override
-                public Response intercept(Chain chain) throws IOException {
+                public Response intercept (Chain chain) throws IOException {
                     Request original = chain.request();
 
                     Request.Builder requestBuilder = original.newBuilder();
+                    requestBuilder.addHeader("ApplicationKey", "EnrichAcademy");
 
                     Request request = requestBuilder.build();
-
                     return chain.proceed(request);
                 }
             });
@@ -180,7 +182,7 @@ public class EnrichUtils {
         return EnrichURLs.retrofitNetworkHandler;
     }
 
-    public static NetworkConnector getRetrofitForEnrich() {
+    public static NetworkConnector getRetrofitForEnrich () {
         if (EnrichURLs.retrofitNetworkHandlerForEnrich == null) {
 
             OkHttpClient.Builder httpClient = new OkHttpClient.Builder()
@@ -190,10 +192,11 @@ public class EnrichUtils {
 
             httpClient.addInterceptor(new Interceptor() {
                 @Override
-                public Response intercept(Chain chain) throws IOException {
+                public Response intercept (Chain chain) throws IOException {
                     Request original = chain.request();
 
                     Request.Builder requestBuilder = original.newBuilder();
+                    requestBuilder.addHeader("ApplicationKey", "EnrichAcademy");
 
                     Request request = requestBuilder.build();
 
@@ -210,12 +213,45 @@ public class EnrichUtils {
                     .build();
             EnrichURLs.retrofitNetworkHandlerForEnrich = retrofit.create(NetworkConnector.class);
         }
-
-
         return EnrichURLs.retrofitNetworkHandlerForEnrich;
     }
 
-    public static Gson newGson() {
+    public static NetworkConnector getRetrofitForEnrich (final String contentType) {
+        if (EnrichURLs.retrofitNetworkHandlerForEnrich == null) {
+
+            OkHttpClient.Builder httpClient = new OkHttpClient.Builder()
+                    .readTimeout(120, TimeUnit.SECONDS)
+                    .writeTimeout(120, TimeUnit.SECONDS)
+                    .connectTimeout(120, TimeUnit.SECONDS);
+
+            httpClient.addInterceptor(new Interceptor() {
+                @Override
+                public Response intercept (Chain chain) throws IOException {
+                    Request original = chain.request();
+
+                    Request.Builder requestBuilder = original.newBuilder();
+                    requestBuilder.addHeader("ApplicationKey", "EnrichAcademy");
+                    requestBuilder.addHeader("Content-Type", contentType);
+
+                    Request request = requestBuilder.build();
+
+                    return chain.proceed(request);
+                }
+            });
+
+            GsonBuilder gsonBuilder = new GsonBuilder();
+            gsonBuilder.registerTypeAdapter(Date.class, new GsonDateDeSerializer());
+            Retrofit retrofit = new Retrofit.Builder()
+                    .client(httpClient.build())
+                    .baseUrl(EnrichURLs.ENRICH_HOST)
+                    .addConverterFactory(GsonConverterFactory.create(gsonBuilder.create()))
+                    .build();
+            EnrichURLs.retrofitNetworkHandlerForEnrich = retrofit.create(NetworkConnector.class);
+        }
+        return EnrichURLs.retrofitNetworkHandlerForEnrich;
+    }
+
+    public static Gson newGson () {
         GsonBuilder builder = new GsonBuilder();
         builder.registerTypeAdapter(Date.class, new GsonDateSerializer());
         return builder.create();
@@ -227,7 +263,7 @@ public class EnrichUtils {
      * @param image Bitmap Image
      * @return Base64 String
      */
-    public static String encodeTobase64(Bitmap image) {
+    public static String encodeTobase64 (Bitmap image) {
         Bitmap immage = image;
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         immage.compress(Bitmap.CompressFormat.PNG, 100, baos);
@@ -243,9 +279,21 @@ public class EnrichUtils {
      * @param input String Base64
      * @return Bitmap
      */
-    public static Bitmap decodeBase64(String input) {
+    public static Bitmap decodeBase64 (String input) {
         byte[] decodedByte = Base64.decode(input, 0);
         return BitmapFactory
                 .decodeByteArray(decodedByte, 0, decodedByte.length);
+    }
+
+    public static UserModel getUser (Context context) {
+        UserModel userModel = EnrichUtils.newGson().fromJson(SharedPreferenceStore.getValue(context, Constants.KEY_USER_MODEL, ""), UserModel.class);
+        return userModel == null ? null : userModel;
+    }
+
+    public static void setUser(Context context, String userModelStr) {
+        if(!userModelStr.isEmpty()){
+            SharedPreferenceStore.storeValue(context, Constants.KEY_USER_MODEL, userModelStr);
+            //OneSignal.sendTag("Phone", getUser(context).Mobile);
+        }
     }
 }

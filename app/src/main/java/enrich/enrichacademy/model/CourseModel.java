@@ -11,92 +11,107 @@ import com.google.gson.annotations.SerializedName;
 
 public class CourseModel implements Parcelable {
 
-    @SerializedName("Id")
+    @SerializedName("name")
+    public String Name;
+    @SerializedName("description")
+    public String Description;
+    @SerializedName("duration")
+    public int Duration;
+    @SerializedName("genderType")
+    public int GenderType;
+
+    public int TopologyId;
+    @SerializedName("storeId")
+    public int StoreId;
+
+    public int ExclusiveAt;
+    @SerializedName("selectedImageWeb")
+    public String SelectedImageWeb;
+    @SerializedName("unselectedImageWeb")
+    public String UnselectedImageWeb;
+    @SerializedName("selectedImageMobile")
+    public String SelectedImageMobile;
+    @SerializedName("unselectedImageMobile")
+    public String UnselectedImageMobile;
+    @SerializedName("createdOn")
+    public String CreatedOn;
+    @SerializedName("updatedAt")
+    public String UpdatedAt;
+    @SerializedName("courseCategoryId")
+    public int CourseCategoryId;
+    @SerializedName("isActive")
+    public int IsActive;
+    @SerializedName("id")
     public int Id;
+    @SerializedName("isApplied")
+    public int IsApplied;
+    @SerializedName("courseStatus")
+    public int CourseStatus;
 
-    @SerializedName("Name")
-    public String name;
+    public String price;
 
-    @SerializedName("Rate")
-    public String rate;
+    public String dataType;
 
-    @SerializedName("Duration")
-    public String duration;
-
-    @SerializedName("Description")
-    public String description;
-
-    @SerializedName("Category_Id")
-    public int CategoryId;
-
-    @SerializedName("BannerImage")
-    public String BannerImage;
-
-    @SerializedName("ThumbImage")
-    public String ThumbImage;
-
-    @SerializedName("Goals")
-    public String Goals;
-
-    @SerializedName("Level")
-    public String Level;
-
-    @SerializedName("Meterials")
-    public String Meterials;
-
-    @SerializedName("Prerequisites")
-    public String Prerequisites;
-
-    @SerializedName("ConnectedCourses")
-    public String ConnectedCourses;
-
-
-    protected CourseModel(Parcel in) {
+    protected CourseModel (Parcel in) {
+        Name = in.readString();
+        Description = in.readString();
+        Duration = in.readInt();
+        GenderType = in.readInt();
+        TopologyId = in.readInt();
+        StoreId = in.readInt();
+        ExclusiveAt = in.readInt();
+        SelectedImageWeb = in.readString();
+        UnselectedImageWeb = in.readString();
+        SelectedImageMobile = in.readString();
+        UnselectedImageMobile = in.readString();
+        CreatedOn = in.readString();
+        UpdatedAt = in.readString();
+        IsActive = in.readInt();
         Id = in.readInt();
-        name = in.readString();
-        rate = in.readString();
-        duration = in.readString();
-        description = in.readString();
-        CategoryId = in.readInt();
-        BannerImage = in.readString();
-        ThumbImage = in.readString();
-        Goals = in.readString();
-        Level = in.readString();
-        Meterials = in.readString();
-        Prerequisites = in.readString();
-        ConnectedCourses = in.readString();
+        CourseCategoryId = in.readInt();
+        IsApplied = in.readInt();
+        CourseStatus = in.readInt();
+        dataType = in.readString();
+        price = in.readString();
     }
 
     @Override
-    public void writeToParcel(Parcel dest, int flags) {
+    public void writeToParcel (Parcel dest, int flags) {
+        dest.writeString(Name);
+        dest.writeString(Description);
+        dest.writeInt(Duration);
+        dest.writeInt(GenderType);
+        dest.writeInt(TopologyId);
+        dest.writeInt(StoreId);
+        dest.writeInt(ExclusiveAt);
+        dest.writeString(SelectedImageWeb);
+        dest.writeString(UnselectedImageWeb);
+        dest.writeString(SelectedImageMobile);
+        dest.writeString(UnselectedImageMobile);
+        dest.writeString(CreatedOn);
+        dest.writeString(UpdatedAt);
+        dest.writeInt(IsActive);
         dest.writeInt(Id);
-        dest.writeString(name);
-        dest.writeString(rate);
-        dest.writeString(duration);
-        dest.writeString(description);
-        dest.writeInt(CategoryId);
-        dest.writeString(BannerImage);
-        dest.writeString(ThumbImage);
-        dest.writeString(Goals);
-        dest.writeString(Level);
-        dest.writeString(Meterials);
-        dest.writeString(Prerequisites);
-        dest.writeString(ConnectedCourses);
+        dest.writeInt(CourseCategoryId);
+        dest.writeInt(IsApplied);
+        dest.writeInt(CourseStatus);
+        dest.writeString(dataType);
+        dest.writeString(price);
     }
 
     @Override
-    public int describeContents() {
+    public int describeContents () {
         return 0;
     }
 
     public static final Creator<CourseModel> CREATOR = new Creator<CourseModel>() {
         @Override
-        public CourseModel createFromParcel(Parcel in) {
+        public CourseModel createFromParcel (Parcel in) {
             return new CourseModel(in);
         }
 
         @Override
-        public CourseModel[] newArray(int size) {
+        public CourseModel[] newArray (int size) {
             return new CourseModel[size];
         }
     };

@@ -3,6 +3,8 @@ package enrich.enrichacademy.fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetDialogFragment;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
@@ -13,7 +15,11 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import enrich.enrichacademy.R;
+import enrich.enrichacademy.adapters.DateTimeSlotsBottomSheetDialogAdapter;
 import enrich.enrichacademy.adapters.TimeSlotsBottomSheetDialogAdapter;
+import enrich.enrichacademy.model.DateTimeSlotModel;
+import enrich.enrichacademy.model.ServicesModel;
+import enrich.enrichacademy.model.TimeSlotModel;
 import enrich.enrichacademy.model.TimingModel;
 import enrich.enrichacademy.utils.BottomSheetListOnItemClickListener;
 
@@ -26,11 +32,21 @@ public class TimeSlotsBottomSheetDialogFragment extends BottomSheetDialogFragmen
     RecyclerView mTimeSlotsRecyclerView;
     TextView mServiceName;
     BottomSheetListOnItemClickListener bottomSheetListOnItemClickListener;
-    ArrayList<TimingModel> timeSlots;
+    ArrayList<DateTimeSlotModel> timeSlots;
     String title;
     TimeSlotsBottomSheetDialogAdapter adapter;
 
-    public static TimeSlotsBottomSheetDialogFragment getInstance(String title, ArrayList<TimingModel> timeSlots, BottomSheetListOnItemClickListener bottomSheetListOnItemClickListener) {
+//    public static TimeSlotsBottomSheetDialogFragment getInstance(String title, ArrayList<TimeSlotModel> timeSlots, BottomSheetListOnItemClickListener bottomSheetListOnItemClickListener) {
+//        TimeSlotsBottomSheetDialogFragment fragment = new TimeSlotsBottomSheetDialogFragment();
+//        Bundle bundle = new Bundle();
+//        bundle.putString("Title", title);
+//        bundle.putParcelableArrayList("TimeSlots", timeSlots);
+//        bundle.putSerializable("BottomSheetListOnItemClickListener", bottomSheetListOnItemClickListener);
+//        fragment.setArguments(bundle);
+//        return fragment;
+//    }
+
+    public static TimeSlotsBottomSheetDialogFragment getInstance(String title, ArrayList<DateTimeSlotModel> timeSlots, BottomSheetListOnItemClickListener bottomSheetListOnItemClickListener, ServicesModel servicesModel) {
         TimeSlotsBottomSheetDialogFragment fragment = new TimeSlotsBottomSheetDialogFragment();
         Bundle bundle = new Bundle();
         bundle.putString("Title", title);
@@ -56,11 +72,17 @@ public class TimeSlotsBottomSheetDialogFragment extends BottomSheetDialogFragmen
         mServiceName = (TextView) rootView.findViewById(R.id.time_slot_service_name);
         mTimeSlotsRecyclerView = (RecyclerView) rootView.findViewById(R.id.time_slots_rv);
 
-        mServiceName.setText(title);
+        mServiceName.setText("Slots for "+title);
 
-        adapter = new TimeSlotsBottomSheetDialogAdapter(TimeSlotsBottomSheetDialogFragment.this.getActivity(), timeSlots, bottomSheetListOnItemClickListener, TimeSlotsBottomSheetDialogFragment.this);
+//        adapter = new TimeSlotsBottomSheetDialogAdapter(TimeSlotsBottomSheetDialogFragment.this.getActivity(), timeSlots, bottomSheetListOnItemClickListener, TimeSlotsBottomSheetDialogFragment.this);
+//        mTimeSlotsRecyclerView.setAdapter(adapter);
+//        mTimeSlotsRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.HORIZONTAL));
+
+        GridLayoutManager manager = new GridLayoutManager(this.getActivity(), 3);
+        DateTimeSlotsBottomSheetDialogAdapter adapter = new DateTimeSlotsBottomSheetDialogAdapter(this.getActivity(), timeSlots,bottomSheetListOnItemClickListener, TimeSlotsBottomSheetDialogFragment.this);
         mTimeSlotsRecyclerView.setAdapter(adapter);
-        mTimeSlotsRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.HORIZONTAL));
+        mTimeSlotsRecyclerView.setLayoutManager(manager);
+        adapter.setLayoutManager(manager);
 
         return rootView;
     }

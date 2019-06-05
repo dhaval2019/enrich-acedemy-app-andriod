@@ -30,13 +30,19 @@ import enrich.enrichacademy.activities.CartActivity;
 import enrich.enrichacademy.activities.CourseListActivity;
 import enrich.enrichacademy.activities.RegisterProfileActivity;
 import enrich.enrichacademy.activities.SearchActivity;
+import enrich.enrichacademy.activities.ServiceHistoryActivity;
+import enrich.enrichacademy.activities.StoreSelectorActivity;
 import enrich.enrichacademy.adapters.CoursePagerAdapter;
 import enrich.enrichacademy.adapters.ServicesPagerAdapter;
 import enrich.enrichacademy.application.EnrichAcademyApplication;
 import enrich.enrichacademy.model.CategoryModel;
 import enrich.enrichacademy.model.CourseModel;
+import enrich.enrichacademy.model.ListResponseModel;
+import enrich.enrichacademy.model.SearchModel;
 import enrich.enrichacademy.model.ServicesModel;
+import enrich.enrichacademy.model.StoreModel;
 import enrich.enrichacademy.model.TopologyModel;
+import enrich.enrichacademy.utils.Constants;
 import enrich.enrichacademy.utils.EnrichURLs;
 import enrich.enrichacademy.utils.EnrichUtils;
 import enrich.enrichacademy.view.SlidingTabLayout;
@@ -55,9 +61,9 @@ public class ServicesFragment extends Fragment {
     ServicesPagerAdapter pagerAdapter;
     FloatingActionButton cart;
     EnrichAcademyApplication application;
-    TextView serviceDate, serviceDay;
-    LinearLayout serviceDateContainer;
-    ImageView search;
+    TextView serviceDate, serviceDay, noServicesAvailable;
+    LinearLayout serviceDateContainer, storeLabelContainer, serviceContainer;
+    ImageView search, serviceHistory;
 
     Date dateValue;
     Calendar myCalendar = Calendar.getInstance();
@@ -78,8 +84,26 @@ public class ServicesFragment extends Fragment {
         }
     };
 
-    public static ServicesFragment getInstance() {
-        return new ServicesFragment();
+    TextView toolbarTitle;
+
+    StoreModel storeModel;
+
+    public static ServicesFragment getInstance(StoreModel storeModel) {
+        ServicesFragment fragment = new ServicesFragment();
+        Bundle args = new Bundle();
+        args.putParcelable("Store", storeModel);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        storeModel = getArguments().getParcelable("Store");
+
+        if (storeModel == null) {
+            storeModel = Constants.storeModel;
+        }
     }
 
     @Nullable
@@ -89,13 +113,29 @@ public class ServicesFragment extends Fragment {
 
         application = (EnrichAcademyApplication) getActivity().getApplicationContext();
 
-        mServicesTabHost = (SlidingTabLayout) rootView.findViewById(R.id.services_tabs);
-        mServicesViewPager = (ViewPager) rootView.findViewById(R.id.services_view_pager);
-        cart = (FloatingActionButton) rootView.findViewById(R.id.cart);
-        serviceDate = (TextView) rootView.findViewById(R.id.service_date);
-        serviceDay = (TextView) rootView.findViewById(R.id.service_day);
-        serviceDateContainer = (LinearLayout) rootView.findViewById(R.id.service_date_container);
-        search = (ImageView) rootView.findViewById(R.id.search);
+        mServicesTabHost = rootView.findViewById(R.id.services_tabs);
+        mServicesViewPager = rootView.findViewById(R.id.services_view_pager);
+        cart = rootView.findViewById(R.id.cart);
+        serviceDate = rootView.findViewById(R.id.service_date);
+        serviceDay = rootView.findViewById(R.id.service_day);
+        serviceDateContainer = rootView.findViewById(R.id.service_date_container);
+        search = rootView.findViewById(R.id.search);
+        serviceHistory = rootView.findViewById(R.id.service_history);
+        toolbarTitle = rootView.findViewById(R.id.toolbar_title);
+        storeLabelContainer = rootView.findViewById(R.id.store_label_container);
+        noServicesAvailable = rootView.findViewById(R.id.no_services_available);
+        serviceContainer = rootView.findViewById(R.id.service_container);
+
+        if (storeModel != null)
+            toolbarTitle.setText(storeModel.getName());
+
+        serviceHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ServicesFragment.this.getActivity(), ServiceHistoryActivity.class);
+                startActivity(intent);
+            }
+        });
 
         search.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,6 +167,15 @@ public class ServicesFragment extends Fragment {
             }
         });
 
+        storeLabelContainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ServicesFragment.this.getActivity(), StoreSelectorActivity.class);
+                startActivity(intent);
+                getActivity().finish();
+            }
+        });
+
         fetchAllTopology();
 
         return rootView;
@@ -135,15 +184,15 @@ public class ServicesFragment extends Fragment {
     private void fetchAllTopology() {
         EnrichUtils.showProgressDialog(ServicesFragment.this.getActivity());
 
-        Call<TopologyModel[]> getCourses = EnrichUtils.getRetrofit().getTopology(EnrichURLs.ENRICH_HOST + EnrichURLs.TOPOLOGY);
-        getCourses.enqueue(new Callback<TopologyModel[]>() {
+        Call<ListResponseModel<TopologyModel>> getCourses = EnrichUtils.getRetrofit().getTopology(EnrichURLs.ENRICH_HOST + EnrichURLs.GET_ALL_TOPOLOGIES);
+        getCourses.enqueue(new Callback<ListResponseModel<TopologyModel>>() {
             @Override
-            public void onResponse(Call<TopologyModel[]> call, Response<TopologyModel[]> response) {
-                fetchAllServices(response.body());
+            public void onResponse(Call<ListResponseModel<TopologyModel>> call, Response<ListResponseModel<TopologyModel>> response) {
+                fetchAllServices(response.body().data);
             }
 
             @Override
-            public void onFailure(Call<TopologyModel[]> call, Throwable t) {
+            public void onFailure(Call<ListResponseModel<TopologyModel>> call, Throwable t) {
                 EnrichUtils.log("" + t.getLocalizedMessage());
                 EnrichUtils.cancelCurrentDialog(ServicesFragment.this.getActivity());
             }
@@ -151,16 +200,38 @@ public class ServicesFragment extends Fragment {
     }
 
     private void fetchAllServices(final TopologyModel[] topologyModels) {
-        Call<ServicesModel[]> getCourses = EnrichUtils.getRetrofit().getServices(EnrichURLs.ENRICH_HOST + EnrichURLs.SERVICES);
-        getCourses.enqueue(new Callback<ServicesModel[]>() {
+        EnrichUtils.log(EnrichURLs.ENRICH_HOST + EnrichURLs.GET_ALL_ACTIVE_SERVICES_BY_STORE_ID + storeModel.getId());
+
+        Call<ListResponseModel<ServicesModel>> getCourses = EnrichUtils.getRetrofit().getServices(EnrichURLs.ENRICH_HOST + EnrichURLs.GET_ALL_ACTIVE_SERVICES_BY_STORE_ID + storeModel.getId());
+        getCourses.enqueue(new Callback<ListResponseModel<ServicesModel>>() {
             @Override
-            public void onResponse(Call<ServicesModel[]> call, Response<ServicesModel[]> response) {
-                mapTopologiesAndServices(response.body(), topologyModels);
+            public void onResponse(Call<ListResponseModel<ServicesModel>> call, Response<ListResponseModel<ServicesModel>> response) {
+                if (response.isSuccessful()) {
+                    ServicesModel[] servicesModels = response.body().data;
+                    if (servicesModels.length != 0) {
+                        for (int i = 0; i < servicesModels.length; i++) {
+                            servicesModels[i].storeModel = storeModel;
+                        }
+                        mapTopologiesAndServices(servicesModels, topologyModels);
+
+                        noServicesAvailable.setVisibility(View.GONE);
+                        serviceContainer.setVisibility(View.VISIBLE);
+                    } else {
+                        noServicesAvailable.setText("No services available at the moment. Please try changing the store or try again later.");
+                        noServicesAvailable.setVisibility(View.VISIBLE);
+                        serviceContainer.setVisibility(View.GONE);
+                    }
+                } else {
+                    noServicesAvailable.setText("Something went wrong. Please try again later.");
+
+                    noServicesAvailable.setVisibility(View.VISIBLE);
+                    serviceContainer.setVisibility(View.GONE);
+                }
                 EnrichUtils.cancelCurrentDialog(ServicesFragment.this.getActivity());
             }
 
             @Override
-            public void onFailure(Call<ServicesModel[]> call, Throwable t) {
+            public void onFailure(Call<ListResponseModel<ServicesModel>> call, Throwable t) {
                 EnrichUtils.log("" + t.getLocalizedMessage());
                 EnrichUtils.cancelCurrentDialog(ServicesFragment.this.getActivity());
             }
@@ -175,13 +246,13 @@ public class ServicesFragment extends Fragment {
                 ServicesModel servicesModelsTemp = servicesModels[i];
                 TopologyModel topologyModelsTemp = getTopologyNameById(servicesModelsTemp.TopologyId, topologyModels);
                 if (servicesMap.containsKey(topologyModelsTemp.Id)) {
-                    EnrichUtils.log(" Service Id " + servicesModelsTemp.Id + " Service Name " + servicesModelsTemp.name);
+                    EnrichUtils.log(" Service Id: " + servicesModelsTemp.Id + " Service Name: " + servicesModelsTemp.Name);
                     servicesMap.get(topologyModelsTemp.Id).add(servicesModelsTemp);
                 } else {
                     ArrayList<ServicesModel> servicesItemsModels = new ArrayList<>();
                     servicesItemsModels.add(servicesModelsTemp);
                     servicesMap.put(topologyModelsTemp.Id, servicesItemsModels);
-                    EnrichUtils.log(" Service Id " + servicesModelsTemp.Id + " Service Name " + servicesModelsTemp.name);
+                    EnrichUtils.log(" Service Id " + servicesModelsTemp.Id + " Service Name " + servicesModelsTemp.Name);
                 }
             }
             initAdapter(topologyModels, servicesMap);
@@ -200,5 +271,11 @@ public class ServicesFragment extends Fragment {
         pagerAdapter = new ServicesPagerAdapter(getFragmentManager(), topologyModels, serviceMap);
         mServicesViewPager.setAdapter(pagerAdapter);
         mServicesTabHost.setViewPager(mServicesViewPager);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        fetchAllTopology();
     }
 }

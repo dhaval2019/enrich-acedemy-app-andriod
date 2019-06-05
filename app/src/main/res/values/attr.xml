@@ -9,6 +9,7 @@
 
     <declare-styleable name="CustomTextView">
         <attr name="font_type" />
+        <attr name="strike_text" format="boolean" />
     </declare-styleable>
 
     <declare-styleable name="CustomEditText">

@@ -16,9 +16,6 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
             android:background="@color/white"
             android:elevation="5dp"
             android:gravity="center"
@@ -31,6 +28,31 @@
                 android:layout_centerVertical="true">
 
                 <LinearLayout
+                    android:id="@+id/store_label_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:orientation="horizontal">
+
+                    <enrich.enrichacademy.view.CustomTextView
+                        android:id="@+id/toolbar_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Enrich Academy"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        app:font_type="bold" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:src="@drawable/ic_keyboard_arrow_down"
+                        android:tint="@color/colorAccent" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:id="@+id/service_date_container"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -39,7 +61,8 @@
                     android:background="@drawable/search_location_bg"
                     android:gravity="center"
                     android:orientation="horizontal"
-                    android:padding="10dp">
+                    android:padding="10dp"
+                    android:visibility="gone">
 
                     <enrich.enrichacademy.view.CustomTextView
                         android:id="@+id/service_day"
@@ -74,10 +97,11 @@
                     android:layout_centerVertical="true">
 
                     <ImageView
-                        android:id="@+id/location"
+                        android:id="@+id/service_history"
                         android:layout_width="25dp"
                         android:layout_height="25dp"
-                        android:src="@drawable/location" />
+                        android:src="@drawable/history_default"
+                        android:tint="#000000" />
 
                     <ImageView
                         android:id="@+id/search"
@@ -85,28 +109,46 @@
                         android:layout_height="25dp"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp"
-                        android:layout_toRightOf="@+id/location"
+                        android:layout_toRightOf="@+id/service_history"
                         android:src="@drawable/search" />
                 </RelativeLayout>
             </RelativeLayout>
         </RelativeLayout>
 
-        <LinearLayout
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-            <enrich.enrichacademy.view.SlidingTabLayout
-                android:id="@+id/services_tabs"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <android.support.v4.view.ViewPager
-                android:id="@+id/services_view_pager"
+            <enrich.enrichacademy.view.CustomTextView
+                android:id="@+id/no_services_available"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/white" />
-        </LinearLayout>
+                android:gravity="center"
+                android:padding="15dp"
+                android:text="No services available at the moment. Please try again later."
+                android:textSize="20sp"
+                android:visibility="gone"
+                app:font_type="reqular"/>
+
+            <LinearLayout
+                android:id="@+id/service_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <enrich.enrichacademy.view.SlidingTabLayout
+                    android:id="@+id/services_tabs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/services_view_pager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white" />
+            </LinearLayout>
+        </FrameLayout>
     </LinearLayout>
 
     <android.support.design.widget.FloatingActionButton
@@ -117,5 +159,6 @@
         android:layout_marginBottom="15dp"
         android:layout_marginRight="25dp"
         android:src="@drawable/ic_shopping_cart_black_24dp"
-        android:tint="@color/white" />
+        android:tint="@color/white"
+        android:visibility="gone" />
 </FrameLayout>

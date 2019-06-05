@@ -21,12 +21,10 @@ import enrich.enrichacademy.model.TopologyModel;
 public class ServicesPagerAdapter extends FragmentStatePagerAdapter {
 
     ArrayList<TopologyModel> topologyModelsList;
-    TopologyModel[] topologyModels;
     HashMap<Integer, ArrayList<ServicesModel>> serviceMap;
 
     public ServicesPagerAdapter(FragmentManager fm, TopologyModel[] topologyModels, HashMap<Integer, ArrayList<ServicesModel>> serviceMap) {
         super(fm);
-        this.topologyModels = topologyModels;
         this.serviceMap = serviceMap;
         topologyModelsList = new ArrayList<>();
         initAllData(topologyModels);

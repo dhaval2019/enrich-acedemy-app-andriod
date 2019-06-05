@@ -84,7 +84,8 @@
             android:layout_weight="1"
             android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:padding="7dp">
+            android:padding="7dp"
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/history_image"
@@ -100,6 +101,54 @@
                 android:text="History"
                 android:textColor="@color/text_color"
                 app:font_type="bold" />
+        </LinearLayout>
+
+        <!-- CART -->
+        <LinearLayout
+            android:id="@+id/cart_container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="7dp">
+
+            <ImageView
+                android:id="@+id/cart_image"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_shopping_cart_black_24dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <enrich.enrichacademy.view.CustomTextView
+                    android:id="@+id/cart_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="Cart"
+                    android:textColor="@color/text_color"
+                    app:font_type="bold" />
+
+                <enrich.enrichacademy.view.CustomTextView
+                    android:id="@+id/items_in_cart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|top"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/red_filled_bg"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:text="2"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    app:font_type="bold"
+                    android:visibility="gone"/>
+            </LinearLayout>
         </LinearLayout>
 
         <!-- PROFILE -->

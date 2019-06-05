@@ -13,24 +13,25 @@ import java.util.Date;
 
 public class UserModel implements Parcelable {
 
-    @SerializedName("Id")
+    @SerializedName("id")
     public String Id;
 
-    @SerializedName("Mobile")
+    @SerializedName("mobileNumber")
     public String Mobile;
 
     @SerializedName("LastOTP")
     public String LastOTP;
 
-    @SerializedName("FirstName")
+    @SerializedName("firstName")
     public String Name;
 
-    @SerializedName("Gender")
-    public String Gender;
+    @SerializedName("gender")
+    public int Gender;
 
+    @SerializedName("dateOfBirth")
     public String DateOfBirth;
 
-    @SerializedName("Email")
+    @SerializedName("email")
     public String EmailAddress;
 
     @SerializedName("Address")
@@ -43,17 +44,20 @@ public class UserModel implements Parcelable {
 
     public boolean isRegistrationCompleted;
 
-    @SerializedName("ProfileImage")
+    @SerializedName("profileImage")
     public String Image;
 
     @SerializedName("IsActive")
     public boolean IsActive;
 
-    @SerializedName("Platform")
+    @SerializedName("platform")
     public String Platform;
 
-    @SerializedName("CreatedOn")
-    public Date CreatedOn;
+    @SerializedName("createdOn")
+    public String CreatedOn;
+
+    @SerializedName("isVerified")
+    public int IsVerified;
 
     public UserModel() {
     }
@@ -63,16 +67,18 @@ public class UserModel implements Parcelable {
         Mobile = in.readString();
         LastOTP = in.readString();
         Name = in.readString();
-        Gender = in.readString();
+        Gender = in.readInt();
         DateOfBirth = in.readString();
         EmailAddress = in.readString();
         Address = in.readString();
         Location = in.readString();
         Password = in.readString();
+        CreatedOn = in.readString();
         isRegistrationCompleted = in.readByte() != 0;
         Image = in.readString();
         IsActive = in.readByte() != 0;
         Platform = in.readString();
+        IsVerified = in.readInt();
     }
 
     public static final Creator<UserModel> CREATOR = new Creator<UserModel>() {
@@ -119,11 +125,11 @@ public class UserModel implements Parcelable {
         Name = name;
     }
 
-    public String getGender() {
+    public int getGender() {
         return Gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(int gender) {
         Gender = gender;
     }
 
@@ -199,12 +205,20 @@ public class UserModel implements Parcelable {
         Platform = platform;
     }
 
-    public Date getCreatedOn() {
+    public String getCreatedOn() {
         return CreatedOn;
     }
 
-    public void setCreatedOn(Date createdOn) {
+    public void setCreatedOn(String createdOn) {
         CreatedOn = createdOn;
+    }
+
+    public int getIsVerified () {
+        return IsVerified;
+    }
+
+    public void setIsVerified (int isVerified) {
+        IsVerified = isVerified;
     }
 
     @Override
@@ -218,15 +232,17 @@ public class UserModel implements Parcelable {
         parcel.writeString(Mobile);
         parcel.writeString(LastOTP);
         parcel.writeString(Name);
-        parcel.writeString(Gender);
+        parcel.writeInt(Gender);
         parcel.writeString(DateOfBirth);
         parcel.writeString(EmailAddress);
         parcel.writeString(Address);
         parcel.writeString(Location);
         parcel.writeString(Password);
+        parcel.writeString(CreatedOn);
         parcel.writeByte((byte) (isRegistrationCompleted ? 1 : 0));
         parcel.writeString(Image);
         parcel.writeByte((byte) (IsActive ? 1 : 0));
         parcel.writeString(Platform);
+        parcel.writeInt(IsVerified);
     }
 }

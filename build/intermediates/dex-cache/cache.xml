@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/varunbarve/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.13.0/a9283170b7305c8d92d25aff02a6ab7e45d06cbe/okio-1.13.0.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="a9283170b7305c8d92d25aff02a6ab7e45d06cbe">
+        <dex dex="/Users/varunbarve/StudioProjects/enrich-acedemy-app-andriod/app/build/intermediates/transforms/preDex/release/42.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/varunbarve/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.2.2.aar/08751f3fa04269c1d33ac6bfa91fe1ce/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="7ed36108b22a98a311676b5ad153d1e3587fcd16">
+        <dex dex="/Users/varunbarve/StudioProjects/enrich-acedemy-app-andriod/app/build/intermediates/transforms/preDex/release/29.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/varunbarve/.gradle/caches/transforms-1/files-1.1/play-services-location-11.2.2.aar/a61956a3e7aa563ee40f64f021381f33/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="73d3d4e86f3d6da0dd1987f7cff9fb07d5a36132">
+        <dex dex="/Users/varunbarve/StudioProjects/enrich-acedemy-app-andriod/app/build/intermediates/transforms/preDex/release/21.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/varunbarve/.gradle/caches/transforms-1/files-1.1/play-services-gcm-11.2.2.aar/5d225684944decd402d578f6bafa946d/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="b35ff61463403c8aa7820fc2fa7caf6a29e31c2c">
+        <dex dex="/Users/varunbarve/StudioProjects/enrich-acedemy-app-andriod/app/build/intermediates/transforms/preDex/release/20.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/varunbarve/.gradle/caches/modules-2/files-2.1/com.android.support/support-annotations/26.1.0/814258103cf26a15fcc26ecce35f5b7d24b73f8/support-annotations-26.1.0.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="0814258103cf26a15fcc26ecce35f5b7d24b73f8">
+        <dex dex="/Users/varunbarve/StudioProjects/enrich-acedemy-app-andriod/app/build/intermediates/transforms/preDex/release/36.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/varunbarve/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/annotations/4.1.1/e336eaee0493d7a441c8e7adbaf38d1d78e58596/annotations-4.1.1.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="e336eaee0493d7a441c8e7adbaf38d1d78e58596">
+        <dex dex="/Users/varunbarve/StudioProjects/enrich-acedemy-app-andriod/app/build/intermediates/transforms/preDex/release/41.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/varunbarve/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/glide/4.1.1/5cf10dddd902443677b1614579f1183f952f3666/glide-4.1.1.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="5cf10dddd902443677b1614579f1183f952f3666">
+        <dex dex="/Users/varunbarve/StudioProjects/enrich-acedemy-app-andriod/app/build/intermediates/transforms/preDex/release/10.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/varunbarve/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/25326ffa2aebe86bfe36fc03480bc98b/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="f428e2fbc9ed0b297e3a3f420e51e6982f66822d">
+        <dex dex="/Users/varunbarve/StudioProjects/enrich-acedemy-app-andriod/app/build/intermediates/transforms/preDex/release/3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/varunbarve/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.2.2.aar/27fbdf4419a1f77076a5117ff2999ac2/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="cf47665b22d68f560d1b8fa2e51b8c23a34574f2">
+        <dex dex="/Users/varunbarve/StudioProjects/enrich-acedemy-app-andriod/app/build/intermediates/transforms/preDex/release/28.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/varunbarve/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.1.0.aar/3575217b9328c47c4cd053d2fc4cbcdc/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="b12cd9c87c3dfb012a911b6e38d2444ed0a65e1f">
+        <dex dex="/Users/varunbarve/StudioProjects/enrich-acedemy-app-andriod/app/build/intermediates/transforms/preDex/release/16.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/varunbarve/.gradle/caches/transforms-1/files-1.1/easypermissions-0.4.3.aar/8e128b82a98619600d77cb166f59fe55/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="1d5d66192b53febfc212a5e2634405138b4675d9">
+        <dex dex="/Users/varunbarve/StudioProjects/enrich-acedemy-app-andriod/app/build/intermediates/transforms/preDex/release/2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/varunbarve/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/d2b43412030b04832bcfa6d04da9c6d8/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="7efef32744ca4a436492d5cf28c08698cc2af256">
+        <dex dex="/Users/varunbarve/StudioProjects/enrich-acedemy-app-andriod/app/build/intermediates/transforms/preDex/release/32.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/varunbarve/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/converter-gson/2.3.0/9e09011e9767bb76b5e27c9b8223476b93b14631/converter-gson-2.3.0.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="9e09011e9767bb76b5e27c9b8223476b93b14631">
+        <dex dex="/Users/varunbarve/StudioProjects/enrich-acedemy-app-andriod/app/build/intermediates/transforms/preDex/release/6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/varunbarve/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/2101d79e6b8e7e93b42bf75571af4f3d/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="b62fdc4cfef174c1e456014195c83fa7de7dc041">
+        <dex dex="/Users/varunbarve/StudioProjects/enrich-acedemy-app-andriod/app/build/intermediates/transforms/preDex/release/43.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/varunbarve/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-26.1.0.aar/a89b9b6b151c1f06f8d3ebd93deca8b0/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="6f4138a4e065826cb044d49faea4cfd7191773d1">
+        <dex dex="/Users/varunbarve/StudioProjects/enrich-acedemy-app-andriod/app/build/intermediates/transforms/preDex/release/15.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/varunbarve/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/gifdecoder/4.1.1/df97c1211882e43d08911e0b82eb6e1b25b3d311/gifdecoder-4.1.1.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="df97c1211882e43d08911e0b82eb6e1b25b3d311">
+        <dex dex="/Users/varunbarve/StudioProjects/enrich-acedemy-app-andriod/app/build/intermediates/transforms/preDex/release/18.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/varunbarve/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/50d1b0edc8c32ff39511d877f0eae524/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="f97cf85b0fe70d37a705111dafa6b1b418ea1650">
+        <dex dex="/Users/varunbarve/StudioProjects/enrich-acedemy-app-andriod/app/build/intermediates/transforms/preDex/release/31.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/varunbarve/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.1.0.aar/49169e057aeac9d64d21fe2598789017/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="40392f30a601db5675cdf18192aab013d6fee6ec">
+        <dex dex="/Users/varunbarve/StudioProjects/enrich-acedemy-app-andriod/app/build/intermediates/transforms/preDex/release/14.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/varunbarve/.gradle/caches/transforms-1/files-1.1/OneSignal-3.6.5.aar/80ed40cfd5880676d7c34a11e6c54199/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="dfff80b6e21c10f40ec59c0e5d86d00bd67a1f35">
+        <dex dex="/Users/varunbarve/StudioProjects/enrich-acedemy-app-andriod/app/build/intermediates/transforms/preDex/release/12.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/varunbarve/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/7afee1a5f824da5a084feb4017298532/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="233f60a165ae622c8b36731502ebbda0f65e1930">
+        <dex dex="/Users/varunbarve/StudioProjects/enrich-acedemy-app-andriod/app/build/intermediates/transforms/preDex/release/33.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/varunbarve/.gradle/caches/transforms-1/files-1.1/design-26.1.0.aar/9c41b6820cbe267987860212c557792b/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="a37fc31c5ceeaa4532a37358add1b189d8db4af1">
+        <dex dex="/Users/varunbarve/StudioProjects/enrich-acedemy-app-andriod/app/build/intermediates/transforms/preDex/release/1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/varunbarve/.gradle/caches/transforms-1/files-1.1/sectioned-recyclerview-0.5.0.aar/00a420104504a0bbf2b7e6023c332afc/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="84d49b4856aadb32b32f64c60ad844b9e9647b0e">
+        <dex dex="/Users/varunbarve/StudioProjects/enrich-acedemy-app-andriod/app/build/intermediates/transforms/preDex/release/9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/varunbarve/.gradle/caches/transforms-1/files-1.1/play-services-base-11.2.2.aar/62ac730439ead813aa0f56da23acce64/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="1d2ee92c55b107ec366ddb534edae4548201e25b">
+        <dex dex="/Users/varunbarve/StudioProjects/enrich-acedemy-app-andriod/app/build/intermediates/transforms/preDex/release/24.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/varunbarve/.gradle/caches/transforms-1/files-1.1/firebase-analytics-11.2.2.aar/4bc335cb445070094fea97ed63f9624b/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="fc3479eb36ae71cbe2a3a589ceda3b8b3b56f08f">
+        <dex dex="/Users/varunbarve/StudioProjects/enrich-acedemy-app-andriod/app/build/intermediates/transforms/preDex/release/22.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/varunbarve/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.3.0/bcacde6a8ccedcc56c127403d26b76072fe6214d/retrofit-2.3.0.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="bcacde6a8ccedcc56c127403d26b76072fe6214d">
+        <dex dex="/Users/varunbarve/StudioProjects/enrich-acedemy-app-andriod/app/build/intermediates/transforms/preDex/release/7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/varunbarve/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-11.2.2.aar/d28c54632bda953beb70ab7c40118f67/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="722f4e3d1abfa535e19043c813c62bb144a7d02f">
+        <dex dex="/Users/varunbarve/StudioProjects/enrich-acedemy-app-andriod/app/build/intermediates/transforms/preDex/release/25.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/varunbarve/.gradle/caches/transforms-1/files-1.1/firebase-common-11.2.2.aar/0f51e8cd99981f3565b517b4052b7c1e/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="6de60b559084bc9f17f4d8916aaa35e058831696">
+        <dex dex="/Users/varunbarve/StudioProjects/enrich-acedemy-app-andriod/app/build/intermediates/transforms/preDex/release/27.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/varunbarve/.gradle/caches/transforms-1/files-1.1/customtabs-26.1.0.aar/640b6d5b350eaae25484be04c7efdefb/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="e6fff1d276738bb82cfc131c49d2e72a47dfd0aa">
+        <dex dex="/Users/varunbarve/StudioProjects/enrich-acedemy-app-andriod/app/build/intermediates/transforms/preDex/release/19.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/varunbarve/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/17a2e5fb5cb8ded7e10c92e20ad0cc1a/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="508f50705b4fde51a16259f29c854201a3044516">
+        <dex dex="/Users/varunbarve/StudioProjects/enrich-acedemy-app-andriod/app/build/intermediates/transforms/preDex/release/34.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/varunbarve/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/1d19135ecf311563dccf20d07892af27/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/varunbarve/StudioProjects/enrich-acedemy-app-andriod/app/build/intermediates/transforms/preDex/release/30.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/varunbarve/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.8.0/5a11f020cce2d11eb71ba916700600e18c4547e7/okhttp-3.8.0.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="5a11f020cce2d11eb71ba916700600e18c4547e7">
+        <dex dex="/Users/varunbarve/StudioProjects/enrich-acedemy-app-andriod/app/build/intermediates/transforms/preDex/release/37.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/varunbarve/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/disklrucache/4.1.1/d02b9bad9380a7f98248e58ec9df65023226259e/disklrucache-4.1.1.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="d02b9bad9380a7f98248e58ec9df65023226259e">
+        <dex dex="/Users/varunbarve/StudioProjects/enrich-acedemy-app-andriod/app/build/intermediates/transforms/preDex/release/40.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/varunbarve/.gradle/caches/transforms-1/files-1.1/firebase-iid-11.2.2.aar/b26b80e0e64e73a2b897a53acc92b8b5/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="787102860a3ae9ed31c934b03ce15ba584a43005">
+        <dex dex="/Users/varunbarve/StudioProjects/enrich-acedemy-app-andriod/app/build/intermediates/transforms/preDex/release/26.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/varunbarve/.gradle/caches/transforms-1/files-1.1/expandablerecyclerview-3.0.0-RC1.aar/9018c95c6cd9b84b6629d060ca8a48c3/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="a8dc46a8903beb5932a24fbd6a443521cc8574bb">
+        <dex dex="/Users/varunbarve/StudioProjects/enrich-acedemy-app-andriod/app/build/intermediates/transforms/preDex/release/5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/varunbarve/.gradle/caches/transforms-1/files-1.1/play-services-iid-11.2.2.aar/04508281b6e2775157a35c0de6f3bfa9/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="a1c4ae24ce3c755b3ef7d79a343acfadfb0b097e">
+        <dex dex="/Users/varunbarve/StudioProjects/enrich-acedemy-app-andriod/app/build/intermediates/transforms/preDex/release/23.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/varunbarve/.gradle/caches/transforms-1/files-1.1/cardview-v7-26.1.0.aar/ce5c3ff8c6bc2fd19efb61da545198a7/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="b4d6fbbb48b42dd03fd9c5a09b3b7a53266df6ed">
+        <dex dex="/Users/varunbarve/StudioProjects/enrich-acedemy-app-andriod/app/build/intermediates/transforms/preDex/release/4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/varunbarve/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/d688c2a6a7ef575ee140f988322d78f1/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="/Users/varunbarve/StudioProjects/enrich-acedemy-app-andriod/app/build/intermediates/transforms/preDex/release/8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/varunbarve/.gradle/caches/transforms-1/files-1.1/transition-26.1.0.aar/c98c6d942515c7a23bd6269072c43cc5/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="58b12bdb21a84f22e0dc3b047aeceb0a546b1b44">
+        <dex dex="/Users/varunbarve/StudioProjects/enrich-acedemy-app-andriod/app/build/intermediates/transforms/preDex/release/17.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/varunbarve/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.7/751f548c85fa49f330cecbb1875893f971b33c4e/gson-2.7.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="751f548c85fa49f330cecbb1875893f971b33c4e">
+        <dex dex="/Users/varunbarve/StudioProjects/enrich-acedemy-app-andriod/app/build/intermediates/transforms/preDex/release/38.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/varunbarve/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/0a4df0182234cf9a32ca1b2c59a1e02b/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="15"
+        optimize="true"
+        revision="26.0.2"
+        sha1="2442771a5590dd4eb4bce00c2e9dca9e22e4c963">
+        <dex dex="/Users/varunbarve/StudioProjects/enrich-acedemy-app-andriod/app/build/intermediates/transforms/preDex/release/35.jar" />
+    </item>
+
+</items>

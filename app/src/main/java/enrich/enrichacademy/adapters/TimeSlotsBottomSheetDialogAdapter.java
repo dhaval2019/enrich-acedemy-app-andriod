@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 import enrich.enrichacademy.R;
 import enrich.enrichacademy.fragments.TimeSlotsBottomSheetDialogFragment;
+import enrich.enrichacademy.model.TimeSlotModel;
 import enrich.enrichacademy.model.TimingModel;
 import enrich.enrichacademy.utils.BottomSheetListOnItemClickListener;
 
@@ -24,12 +25,12 @@ import enrich.enrichacademy.utils.BottomSheetListOnItemClickListener;
 public class TimeSlotsBottomSheetDialogAdapter extends RecyclerView.Adapter<TimeSlotsBottomSheetDialogAdapter.TimeSlotsViewHolder> {
 
     Context context;
-    ArrayList<TimingModel> timeSlots;
+    ArrayList<TimeSlotModel> timeSlots;
     LayoutInflater inflater;
     BottomSheetListOnItemClickListener bottomSheetListOnItemClickListener;
     TimeSlotsBottomSheetDialogFragment timeSlotsBottomSheetDialogFragment;
 
-    public TimeSlotsBottomSheetDialogAdapter(Context context, ArrayList<TimingModel> timeSlots, BottomSheetListOnItemClickListener bottomSheetListOnItemClickListener, TimeSlotsBottomSheetDialogFragment timeSlotsBottomSheetDialogFragment) {
+    public TimeSlotsBottomSheetDialogAdapter(Context context, ArrayList<TimeSlotModel> timeSlots, BottomSheetListOnItemClickListener bottomSheetListOnItemClickListener, TimeSlotsBottomSheetDialogFragment timeSlotsBottomSheetDialogFragment) {
         this.context = context;
         this.timeSlots = timeSlots;
         this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -45,7 +46,7 @@ public class TimeSlotsBottomSheetDialogAdapter extends RecyclerView.Adapter<Time
 
     @Override
     public void onBindViewHolder(final TimeSlotsViewHolder holder, final int position) {
-        holder.timeSlot.setText(timeSlots.get(position).Timings);
+        holder.timeSlot.setText(timeSlots.get(position).Start);
         holder.timeSlot.setTag(position);
         holder.timeSlot.setOnClickListener(new View.OnClickListener() {
             @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -53,7 +54,7 @@ public class TimeSlotsBottomSheetDialogAdapter extends RecyclerView.Adapter<Time
             public void onClick(View view) {
                 holder.timeSlot.setTextColor(Color.parseColor("#ffffff"));
                 holder.timeSlot.setBackground(context.getDrawable(R.drawable.timing_bg_red));
-                bottomSheetListOnItemClickListener.onListItemSelected(position);
+                bottomSheetListOnItemClickListener.onListItemSelected(0,"",null);
                 timeSlotsBottomSheetDialogFragment.dismiss();
             }
         });

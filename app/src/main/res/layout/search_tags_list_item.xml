@@ -25,6 +25,7 @@
         android:layout_height="15dp"
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="10dp"
-        android:src="@drawable/cross" />
+        android:src="@drawable/cross"
+        android:visibility="gone"/>
 
 </LinearLayout>

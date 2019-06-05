@@ -8,7 +8,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import enrich.enrichacademy.R;
+import enrich.enrichacademy.activities.SearchActivity;
+import enrich.enrichacademy.model.TopologyModel;
 
 /**
  * Created by Admin on 05-Mar-17.
@@ -18,28 +22,38 @@ public class SearchTagsAdapter extends RecyclerView.Adapter<SearchTagsAdapter.Ta
 
     Context context;
     LayoutInflater inflater;
-    String[] tags;
+    ArrayList<TopologyModel> list;
+    SearchActivity activity;
 
-    public SearchTagsAdapter(Context context, String[] tags) {
+    public SearchTagsAdapter (Context context, ArrayList<TopologyModel> list, SearchActivity activity) {
         this.context = context;
-        this.tags = tags;
+        this.list = list;
         this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        this.activity = activity;
     }
 
     @Override
-    public TagsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public TagsViewHolder onCreateViewHolder (ViewGroup parent, int viewType) {
         View view = inflater.inflate(R.layout.search_tags_list_item, parent, false);
         return new TagsViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(TagsViewHolder holder, int position) {
-        holder.name.setText(tags[position]);
+    public void onBindViewHolder (final TagsViewHolder holder, int position) {
+        holder.name.setText(list.get(position).Name);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+                activity.searchByKeyword(holder.name.getText().toString());
+                activity.searchEdit.setText(holder.name.getText().toString());
+            }
+        });
     }
 
     @Override
-    public int getItemCount() {
-        return tags.length;
+    public int getItemCount () {
+        return list.size();
     }
 
     class TagsViewHolder extends RecyclerView.ViewHolder {
@@ -47,7 +61,7 @@ public class SearchTagsAdapter extends RecyclerView.Adapter<SearchTagsAdapter.Ta
         TextView name;
         ImageView delete;
 
-        public TagsViewHolder(View itemView) {
+        public TagsViewHolder (View itemView) {
             super(itemView);
             name = (TextView) itemView.findViewById(R.id.tag_name);
             delete = (ImageView) itemView.findViewById(R.id.tag_delete);

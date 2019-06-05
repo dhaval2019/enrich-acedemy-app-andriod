@@ -39,11 +39,11 @@ public class CartActivity extends AppCompatActivity {
 
         application = (EnrichAcademyApplication) getApplicationContext();
 
-        cart_rv = (RecyclerView) findViewById(R.id.cart_rv);
-        totalItem = (TextView) findViewById(R.id.total_items);
-        totalAmount = (TextView) findViewById(R.id.total_rate);
-        proceed = (Button) findViewById(R.id.cart_proceed_btn);
-        back = (ImageView) findViewById(R.id.back_button);
+        cart_rv = findViewById(R.id.cart_rv);
+        totalItem = findViewById(R.id.total_items);
+        totalAmount = findViewById(R.id.total_rate);
+        proceed = findViewById(R.id.cart_proceed_btn);
+        back = findViewById(R.id.back_button);
 
         totalItem.setText("Total Services: " + application.getCartItemCount());
         totalAmount.setText("Total: Rs. " + application.getTotalCartPrice());
